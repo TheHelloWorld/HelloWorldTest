@@ -18,8 +18,19 @@ public class FirstClassAction {
 	 @RequestMapping(value = "testJsp")
 	 public String getExport(HttpServletRequest request, String queryId){
 		 System.out.println(1);
-		 System.out.println(firstClassService.test());
+	
 		 request.setAttribute("name", "Áõ×Óçû");
 		 return "testJsp";
 	 }
+	 
+	 @RequestMapping(value = "index")
+	 public String goIndex(String username,String password){
+		 
+		 return "index";
+	 }
+	 
+	 public String checkUser(String username,String password){
+		 return  "";
+	 }
+	 
 }
