@@ -5,7 +5,7 @@ import com.helloworld.bean.Account;
 public interface FirstClassService {
 	
 	/**
-	 * ¼ì²éÓÃ»§ÃûÃÜÂëÊÇ·ñÕıÈ·
+	 * æ£€æŸ¥ç”¨æˆ·åå¯†ç æ˜¯å¦æ­£ç¡®
 	 * @param username
 	 * @param password
 	 * @return
@@ -13,19 +13,26 @@ public interface FirstClassService {
 	public String checkUser(String username,String password);
 	
 	/**
-	 * Ìí¼ÓÓÃ»§
+	 * æŸ¥è¯¢å½“å‰emailæ˜¯å¦é‡å¤
+	 * @param email
+	 * @return
+	 */
+	public String checkEmail(String email);
+	
+	/**
+	 * æ·»åŠ ç”¨æˆ·
 	 * @param account
 	 */
 	public void addUser(Account account);
 	
 	/**
-	 * ¸ù¾İidĞŞ¸ÄÓÃ»§×´Ì¬
+	 * æ ¹æ®idä¿®æ”¹ç”¨æˆ·çŠ¶æ€
 	 * @param id
 	 */
 	public void updateStatusById(Long id);
 	
 	/**
-	 * ÓÃ»§ĞŞ¸Ä×ÊÁÏ
+	 * ç”¨æˆ·ä¿®æ”¹èµ„æ–™
 	 * @param account
 	 */
 	public void updateAccountById(Account account);

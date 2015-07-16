@@ -16,7 +16,7 @@ public class FristClassServiceImpl implements FirstClassService{
     private FirstClassDao firstClassDao;
 	
 	/**
-	 * ¼ì²éÓÃ»§ÃûÃÜÂëÊÇ·ñÕıÈ·
+	 * æ£€æŸ¥ç”¨æˆ·åå¯†ç æ˜¯å¦æ­£ç¡®
 	 * @param username
 	 * @param password
 	 * @return
@@ -34,16 +34,18 @@ public class FristClassServiceImpl implements FirstClassService{
 	}
 	
 	/**
-	 * Ìí¼ÓÓÃ»§
+	 * æ·»åŠ ç”¨æˆ·
 	 * @param account
 	 */
 	@Override
 	public void addUser(Account account){
+		//è¿›è¡ŒMD5åŠ å¯†
+		account.setPassword(MD5Util.GetMD5Code(account.getPassword()));
 		firstClassDao.addUser(account);
 	}
 	
 	/**
-	 * ¸ù¾İidĞŞ¸ÄÓÃ»§×´Ì¬
+	 * æ ¹æ®idä¿®æ”¹ç”¨æˆ·çŠ¶æ€
 	 * @param id
 	 */
 	@Override
@@ -52,12 +54,21 @@ public class FristClassServiceImpl implements FirstClassService{
 	}
 	
 	/**
-	 * ÓÃ»§ĞŞ¸Ä×ÊÁÏ
+	 * ç”¨æˆ·ä¿®æ”¹èµ„æ–™
 	 * @param account
 	 */
 	@Override
 	public void updateAccountById(Account account){
 		firstClassDao.updateAccountById(account);
+	}
+	
+	@Override
+	public String checkEmail(String email){
+		if(firstClassDao.getCountByEmail(email)>0){
+			return "N";
+		}else{
+			return "Y";
+		}
 	}
 
 }

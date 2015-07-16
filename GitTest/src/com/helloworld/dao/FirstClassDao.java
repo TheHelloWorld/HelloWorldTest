@@ -7,16 +7,16 @@ import com.helloworld.bean.Account;
 
 
 /** 
- * @Description: ÕâÀïÓÃÒ»¾ä»°ÃèÊöÕâ¸öÀàµÄ×÷ÓÃ
- * @see: BaseDataOfDayDao ´Ë´¦ÌîĞ´ĞèÒª²Î¿¼µÄÀà
- * @version 2014Äê12ÔÂ31ÈÕ ÉÏÎç9:31:47 
+ * @Description: è¿™é‡Œç”¨ä¸€å¥è¯æè¿°è¿™ä¸ªç±»çš„ä½œç”¨
+ * @see: BaseDataOfDayDao æ­¤å¤„å¡«å†™éœ€è¦å‚è€ƒçš„ç±»
+ * @version 2014å¹´12æœˆ31æ—¥ ä¸Šåˆ9:31:47 
  * @author jiude.sun
  */
 public interface FirstClassDao
 {
 	
 	/**
-	 * ¸ù¾İÓÃ»§Ãû¡¢ÃÜÂë·µ»ØÊıÁ¿
+	 * æ ¹æ®ç”¨æˆ·åã€å¯†ç è¿”å›æ•°é‡
 	 * @param name
 	 * @param password
 	 * @return
@@ -24,21 +24,28 @@ public interface FirstClassDao
 	public Integer checkUser(@Param("username")String username,@Param("password")String password);
     
 	/**
-	 * Ìí¼ÓÓÃ»§
+	 * æ·»åŠ ç”¨æˆ·
 	 * @param account
 	 */
 	public void addUser(Account account);
 	
 	/**
-	 * ¸ù¾İidĞŞ¸ÄÓÃ»§×´Ì¬
+	 * æ ¹æ®idä¿®æ”¹ç”¨æˆ·çŠ¶æ€
 	 * @param id
 	 */
 	public void updateStatusById(Long id);
 	
 	/**
-	 * ÓÃ»§ĞŞ¸Ä×ÊÁÏ
+	 * ç”¨æˆ·ä¿®æ”¹èµ„æ–™
 	 * @param account
 	 */
 	public void updateAccountById(Account account);
+	
+	/**
+	 * æŸ¥è¯¢å½“å‰emailæ˜¯å¦é‡å¤
+	 * @param email
+	 * @return
+	 */
+	public Integer getCountByEmail(String email);
 
 }

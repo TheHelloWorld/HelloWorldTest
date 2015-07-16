@@ -1,0 +1,13 @@
+eclipse.preferences.version=1
+encoding//WebRoot/jsp/HelloWorld/index.jsp=UTF-8
+encoding//src/com/helloworld/action/FirstClassAction.java=UTF-8
+encoding//src/com/helloworld/bean/Account.java=UTF-8
+encoding//src/com/helloworld/dao/FirstClassDao.java=UTF-8
+encoding//src/com/helloworld/service/FirstClassService.java=UTF-8
+encoding//src/com/helloworld/service/impl/FristClassServiceImpl.java=UTF-8
+encoding//src/com/helloworld/util/MD5Util.java=UTF-8
+encoding//src/com/helloworld/util/MailAuthenticator.java=UTF-8
+encoding//src/com/helloworld/util/MailUtil.java=UTF-8
+encoding//src/com/helloworld/util/PropertiesUtil.java=UTF-8
+encoding//src/mybatis-context/FirstClass.xml=UTF-8
+encoding//src/t.txt=UTF-8

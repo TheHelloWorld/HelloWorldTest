@@ -1,16 +1,18 @@
 package com.helloworld.util;
 
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /*
- * MD5 Ëã·¨
+ * MD5 ç®—æ³•
 */
 public class MD5Util {
     
-    // È«¾ÖÊı×é
+    // å…¨å±€æ•°ç»„
     private final static String[] strDigits = { "0", "1", "2", "3", "4", "5","6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };
 
-    // ·µ»ØĞÎÊ½ÎªÊı×Ö¸ú×Ö·û´®
+    // è¿”å›å½¢å¼ä¸ºæ•°å­—è·Ÿå­—ç¬¦ä¸²
     private static String byteToArrayString(byte bByte) {
         int iRet = bByte;
         // System.out.println("iRet="+iRet);
@@ -22,7 +24,7 @@ public class MD5Util {
         return strDigits[iD1] + strDigits[iD2];
     }
 
-    // ×ª»»×Ö½ÚÊı×éÎª16½øÖÆ×Ö´®
+    // è½¬æ¢å­—èŠ‚æ•°ç»„ä¸º16è¿›åˆ¶å­—ä¸²
     private static String byteToString(byte[] bByte) {
         StringBuffer sBuffer = new StringBuffer();
         for (int i = 0; i < bByte.length; i++) {
@@ -36,12 +38,18 @@ public class MD5Util {
         try {
             resultString = new String(strObj);
             MessageDigest md = MessageDigest.getInstance("MD5");
-            // md.digest() ¸Ãº¯Êı·µ»ØÖµÎª´æ·Å¹şÏ£Öµ½á¹ûµÄbyteÊı×é
+            // md.digest() è¯¥å‡½æ•°è¿”å›å€¼ä¸ºå­˜æ”¾å“ˆå¸Œå€¼ç»“æœçš„byteæ•°ç»„
             resultString = byteToString(md.digest(strObj.getBytes()));
         } catch (NoSuchAlgorithmException ex) {
             ex.printStackTrace();
         }
         return resultString;
+    }
+    
+    public static void main(String[] arg){
+    	String str = "HELLOWORLD!";
+    	str = str.toLowerCase();
+    	System.out.println(str);
     }
 
 }
