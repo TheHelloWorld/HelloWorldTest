@@ -1,24 +1,28 @@
-package com.helloworld.service;
+package com.helloworld.dao;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.helloworld.bean.Account;
 
-public interface FirstClassService {
+
+
+/** 
+ * @Description: 这里用一句话描述这个类的作用
+ * @see: BaseDataOfDayDao 此处填写需要参考的类
+ * @version 2014年12月31日 上午9:31:47 
+ * @author jiude.sun
+ */
+public interface HelloWorldDao
+{
 	
 	/**
-	 * 检查用户名密码是否正确
-	 * @param username
+	 * 根据用户名、密码返回数量
+	 * @param name
 	 * @param password
 	 * @return
 	 */
-	public String checkUser(String username,String password);
-	
-	/**
-	 * 查询当前email是否重复
-	 * @param email
-	 * @return
-	 */
-	public String checkEmail(String email);
-	
+	public Integer checkUser(@Param("username")String username,@Param("password")String password);
+    
 	/**
 	 * 添加用户
 	 * @param account
@@ -36,6 +40,13 @@ public interface FirstClassService {
 	 * @param account
 	 */
 	public void updateAccountById(Account account);
+	
+	/**
+	 * 查询当前email是否重复
+	 * @param email
+	 * @return
+	 */
+	public Integer getCountByEmail(String email);
 	
 	/**
 	 * 根据id判断账户是否存在
@@ -57,6 +68,5 @@ public interface FirstClassService {
 	 * @return
 	 */
 	public String getStatusByAccount(Account account);
-	
 
 }

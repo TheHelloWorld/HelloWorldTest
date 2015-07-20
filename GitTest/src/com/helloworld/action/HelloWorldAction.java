@@ -12,15 +12,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.helloworld.bean.Account;
-import com.helloworld.service.FirstClassService;
+import com.helloworld.service.HelloWorldService;
 import com.helloworld.util.MailUtil;
 
 
 @Controller 
-public class FirstClassAction {
+public class HelloWorldAction {
 	
 	@Resource
-    private FirstClassService firstClassService;
+    private HelloWorldService firstClassService;
 	 
 	 /**
 	  * 跳转到主页
@@ -127,5 +127,6 @@ public class FirstClassAction {
 	    	return "error:"+e.getMessage();
 	    }
 	}
+	 
 	 	
 }

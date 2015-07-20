@@ -3,17 +3,17 @@ package com.helloworld.service.impl;
 import javax.annotation.Resource;
 
 import com.helloworld.bean.Account;
-import com.helloworld.dao.FirstClassDao;
-import com.helloworld.service.FirstClassService;
+import com.helloworld.dao.HelloWorldDao;
+import com.helloworld.service.HelloWorldService;
 import com.helloworld.util.MD5Util;
 
 import org.springframework.stereotype.Service;
 
 @Service("firstClassService")
-public class FristClassServiceImpl implements FirstClassService{
+public class HelloWorldServiceImpl implements HelloWorldService{
 	
 	@Resource
-    private FirstClassDao firstClassDao;
+    private HelloWorldDao firstClassDao;
 	
 	/**
 	 * 检查用户名密码是否正确
