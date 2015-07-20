@@ -1,7 +1,5 @@
 package com.helloworld.util;
 
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 /*
@@ -15,7 +13,6 @@ public class MD5Util {
     // 返回形式为数字跟字符串
     private static String byteToArrayString(byte bByte) {
         int iRet = bByte;
-        // System.out.println("iRet="+iRet);
         if (iRet < 0) {
             iRet += 256;
         }

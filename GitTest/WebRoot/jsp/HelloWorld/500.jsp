@@ -7,11 +7,6 @@
 
 </head>
 <body>
-	<form action="" method="post" >
-		<div><span>用户名：</span><input type="text" /></div>
-		<div><span>密码：</span><input type="password"/></div>
-		<input type="submit" value="提交">
-		<a href="/GitTest/jsp/HelloWorld/checkHelloWorld.jsp">注册</a>
-	</form>
+	<h2>系统繁忙，我们正在玩命处理中 ORZ</h2>
 
 </body>

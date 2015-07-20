@@ -1,16 +1,14 @@
 package com.helloworld.action;
 
-import java.io.PrintStream;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import org.mvel2.MVEL;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.helloworld.bean.Account;
@@ -31,8 +29,7 @@ public class FirstClassAction {
 	  * @return
 	  */
 	 @RequestMapping(value = "index")
-	 public String goIndex(String username,String password){
-		 
+	 public String goIndex(String username,String password){		 
 		 return "index";
 	 }
 	 
@@ -66,7 +63,7 @@ public class FirstClassAction {
 	  * @return
 	  */
 	 @ResponseBody
-	 @RequestMapping(value = "addAccount")
+	 @RequestMapping(value="addAccount", method = RequestMethod.POST, produces = "plain/text; charset=UTF-8")
 	 public String addAccount(String username,String password){
 		try{
 			
@@ -75,7 +72,7 @@ public class FirstClassAction {
 			account.setPassword(password);
 			firstClassService.addUser(account);
 			MailUtil mail = new MailUtil();
-			mail.sendOne(username, "激活您的账号", "请点击下面链接激活您的账号<a href='localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"'>激活链接</a>");
+			mail.sendOne(username, "激活您的账号", "请点击下面链接激活您的账号<a href='localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"'>激活链接</a><br/>如果链接不能点击请复制以下链接到您的浏览器地址栏：localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"");
 			return  "Y";
 		}catch(Exception e){
 			return e.getMessage();
@@ -90,10 +87,22 @@ public class FirstClassAction {
 	 @RequestMapping(value = "updateStatusById")
 	 public String updateStatusById(Long id){
 		try{
-			firstClassService.updateStatusById(id);
-			return  "userIndex";
+			int count = firstClassService.getNumById(id);
+			String status = firstClassService.getStatusById(id);
+			if("FALSE".equals(status) && count == 1){
+				firstClassService.updateStatusById(id);
+				return "successPage";
+			}else{
+				if("TRUE".equals(status)){
+					return "statusTrue";
+				}else if(count != 0){
+					return "countErr";
+				}
+				return "404";
+			}	
 		}catch(Exception e){
-			return e.getMessage();
+			e.getMessage();
+			return "500";
 		}		
 	 }
 	 
@@ -103,7 +112,7 @@ public class FirstClassAction {
 	  * @return
 	  */
 	 @ResponseBody
-	 @RequestMapping(value = "checkHelloWorld")
+	 @RequestMapping(value="checkHelloWorld", method = RequestMethod.POST, produces = "plain/text; charset=UTF-8")
 	 public String  executeRedis(String str) {	
 	    try{   		
 	    	Serializable  r = MVEL.compileExpression(str);

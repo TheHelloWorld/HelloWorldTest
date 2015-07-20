@@ -43,10 +43,18 @@ public class MailUtil {
      *                发送邮件的密码
      */
     public MailUtil() {
-	    //通过邮箱地址解析出smtp服务器，对大多数邮箱都管用
-    	PropertiesUtil propertiesUtil = new PropertiesUtil();  	
-	    final String smtpHostName = "smtp." + propertiesUtil.getUsername().split("@")[1];
-	    init(propertiesUtil.getUsername(), propertiesUtil.getPassword(), smtpHostName);
+    	try{
+    		PropertiesUtil p = new PropertiesUtil();
+    		Properties prop = p.getInstance("mail");
+	        String username = prop.getProperty("username").trim();   
+	        String password = prop.getProperty("password").trim();   
+	   	    //通过邮箱地址解析出smtp服务器，对大多数邮箱都管用
+	   	    final String smtpHostName = "smtp." + username.split("@")[1];
+	   	    init(username, password, smtpHostName);
+    	}catch(Exception e){
+    		
+    	}
+    	
  
     }
  

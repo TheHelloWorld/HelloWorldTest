@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <html>
+<title>HelloWorld</title>
 <head>
 	<script type="text/javascript" src="/GitTest/JQuery/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
@@ -9,7 +10,7 @@
 		function checkMail(){
 			var username = $("#username").val();
 			if (!username.match(/^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/)) { 
-				$("#mailMsg").html("邮箱格式不正确"); 
+				$("#mailMsg").html("<font color='red'>邮箱格式不正确</font>"); 
 				//$("#confirmMsg").html("<font color='red'>邮箱格式不正确！请重新输入！</font>"); 
 				$("#username").focus(); 
 			}else{
@@ -24,7 +25,7 @@
 							$("#mailMsg").html("");
 							mailFlag = true;
 						}else{
-							$("#mailMsg").html("该邮箱以被占用,请更换");
+							$("#mailMsg").html("<font color='red'>该邮箱以被占用,请更换</font>");
 							mailFlag = false;
 						}
 					},error:function(e){
@@ -60,7 +61,7 @@
 					if(passwordFlag && mailFlag){
 						if(data == "Y"){
 							alert("您已注册成功，请去您的邮箱激活");
-							window.location.href="/GitTest/jsp/HelloWorld/inde.jsp";
+							window.location.href="/GitTest/jsp/HelloWorld/index.jsp";
 						}else{
 							alert(data);
 						}

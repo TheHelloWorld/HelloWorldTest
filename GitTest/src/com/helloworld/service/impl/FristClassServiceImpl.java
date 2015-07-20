@@ -70,5 +70,35 @@ public class FristClassServiceImpl implements FirstClassService{
 			return "Y";
 		}
 	}
+	
+	/**
+	 * 根据id判断账户是否存在
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public Integer getNumById(Long id){
+		return firstClassDao.getNumById(id);
+	}
+	
+	/**
+	 * 根据id获得账户激活状态
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public String getStatusById(Long id){
+		return firstClassDao.getStatusById(id);
+	}
+	
+	/**
+	 * 根据用户名、密码获得账户激活状态
+	 * @param account
+	 * @return
+	 */
+	@Override
+	public String getStatusByAccount(Account account){
+		return firstClassDao.getStatusByAccount(account);
+	}
 
 }

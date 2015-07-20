@@ -4,38 +4,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public final class PropertiesUtil {
-	    private static String username;   
-	    private static String password;   
+public class PropertiesUtil {
 	  
-	    static {   
-	        Properties prop = new Properties();   
-	        InputStream in = Object.class.getResourceAsStream("mail.properties");   
-	        try {   
-	            prop.load(in);  
-	            username = prop.getProperty("username").trim();   
-	            password = prop.getProperty("password").trim();   
-	        } catch (IOException e) {   
-	            e.printStackTrace();   
-	        }   
-	    }
-
-		public static String getUsername() {
-			return username;
-		}
-
-		public static void setUsername(String username) {
-			PropertiesUtil.username = username;
-		}
-
-		public static String getPassword() {
-			return password;
-		}
-
-		public static void setPassword(String password) {
-			PropertiesUtil.password = password;
-		}   
-	  
-	    
+	public Properties getInstance(String fileName){
+		try {	
+			fileName = "/"+fileName+".properties";	
+			Properties prop = System.getProperties();
+	       	InputStream in = this.getClass().getResourceAsStream(fileName);      
+	       	prop.load(in);	       	
+	       	return prop;
+		 } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		 }
+	}
 	 
 }

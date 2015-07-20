@@ -47,5 +47,26 @@ public interface FirstClassDao
 	 * @return
 	 */
 	public Integer getCountByEmail(String email);
+	
+	/**
+	 * 根据id判断账户是否存在
+	 * @param id
+	 * @return
+	 */
+	public Integer getNumById(Long id);
+	
+	/**
+	 * 根据id获得账户激活状态
+	 * @param id
+	 * @return
+	 */
+	public String getStatusById(Long id);
+	
+	/**
+	 * 根据用户名、密码获得账户激活状态
+	 * @param account
+	 * @return
+	 */
+	public String getStatusByAccount(Account account);
 
 }
