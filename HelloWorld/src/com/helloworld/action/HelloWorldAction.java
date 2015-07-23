@@ -20,7 +20,7 @@ import com.helloworld.util.MailUtil;
 public class HelloWorldAction {
 	
 	@Resource
-    private HelloWorldService firstClassService;
+    private HelloWorldService helloWorldService;
 	 
 	 /**
 	  * 跳转到主页
@@ -42,7 +42,7 @@ public class HelloWorldAction {
 	 @ResponseBody
 	 @RequestMapping(value = "checkUser")
 	 public String checkUser(String username,String password){
-		return firstClassService.checkUser(username,password);
+		return helloWorldService.checkUser(username,password);
 	 }
 	 
 	 /**
@@ -53,7 +53,7 @@ public class HelloWorldAction {
 	 @ResponseBody
 	 @RequestMapping(value = "checkEmail")
 	 public String checkEmail(String email){
-		return firstClassService.checkEmail(email);		
+		return helloWorldService.checkEmail(email);		
 	 }
 	 
 	 /**
@@ -70,7 +70,7 @@ public class HelloWorldAction {
 			Account account = new Account();
 			account.setUsername(username);
 			account.setPassword(password);
-			firstClassService.addUser(account);
+			helloWorldService.addUser(account);
 			MailUtil mail = new MailUtil();
 			mail.sendOne(username, "激活您的账号", "请点击下面链接激活您的账号<a href='localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"'>激活链接</a><br/>如果链接不能点击请复制以下链接到您的浏览器地址栏：localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"");
 			return  "Y";
@@ -87,10 +87,10 @@ public class HelloWorldAction {
 	 @RequestMapping(value = "updateStatusById")
 	 public String updateStatusById(Long id){
 		try{
-			int count = firstClassService.getNumById(id);
-			String status = firstClassService.getStatusById(id);
+			int count = helloWorldService.getNumById(id);
+			String status = helloWorldService.getStatusById(id);
 			if("FALSE".equals(status) && count == 1){
-				firstClassService.updateStatusById(id);
+				helloWorldService.updateStatusById(id);
 				return "successPage";
 			}else{
 				if("TRUE".equals(status)){
@@ -127,8 +127,5 @@ public class HelloWorldAction {
 	    	return "error:"+e.getMessage();
 	    }
 	}
-	 
-	 
-	
-	 	
+ 	
 }

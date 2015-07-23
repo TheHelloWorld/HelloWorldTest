@@ -9,11 +9,11 @@ import com.helloworld.util.MD5Util;
 
 import org.springframework.stereotype.Service;
 
-@Service("firstClassService")
+@Service("helloWorldService")
 public class HelloWorldServiceImpl implements HelloWorldService{
 	
 	@Resource
-    private HelloWorldDao firstClassDao;
+    private HelloWorldDao helloWorldDao;
 	
 	/**
 	 * 检查用户名密码是否正确
@@ -24,7 +24,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 	@Override
 	public String checkUser(String username,String password){
 		password = MD5Util.GetMD5Code(password);
-		int count = firstClassDao.checkUser(username,password);
+		int count = helloWorldDao.checkUser(username,password);
 		if(count>0){
 			return  "Y";
 		}else{
@@ -41,7 +41,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 	public void addUser(Account account){
 		//进行MD5加密
 		account.setPassword(MD5Util.GetMD5Code(account.getPassword()));
-		firstClassDao.addUser(account);
+		helloWorldDao.addUser(account);
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 	 */
 	@Override
 	public void updateStatusById(Long id){
-		firstClassDao.updateStatusById(id);
+		helloWorldDao.updateStatusById(id);
 	}
 	
 	/**
@@ -59,12 +59,12 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 	 */
 	@Override
 	public void updateAccountById(Account account){
-		firstClassDao.updateAccountById(account);
+		helloWorldDao.updateAccountById(account);
 	}
 	
 	@Override
 	public String checkEmail(String email){
-		if(firstClassDao.getCountByEmail(email)>0){
+		if(helloWorldDao.getCountByEmail(email)>0){
 			return "N";
 		}else{
 			return "Y";
@@ -78,7 +78,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 	 */
 	@Override
 	public Integer getNumById(Long id){
-		return firstClassDao.getNumById(id);
+		return helloWorldDao.getNumById(id);
 	}
 	
 	/**
@@ -88,7 +88,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 	 */
 	@Override
 	public String getStatusById(Long id){
-		return firstClassDao.getStatusById(id);
+		return helloWorldDao.getStatusById(id);
 	}
 	
 	/**
@@ -98,7 +98,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 	 */
 	@Override
 	public String getStatusByAccount(Account account){
-		return firstClassDao.getStatusByAccount(account);
+		return helloWorldDao.getStatusByAccount(account);
 	}
 
 }
