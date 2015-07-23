@@ -3,7 +3,7 @@
 <html>
 <title>HelloWorld</title>
 <head>
-<script type="text/javascript" src="/GitTest/JQuery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/HelloWorld/JQuery/jquery-1.11.3.min.js"></script>
 
 </head>
 <body>
@@ -11,7 +11,7 @@
 		<div><span>用户名：</span><input type="text" /></div>
 		<div><span>密码：</span><input type="password"/></div>
 		<input type="submit" value="提交">
-		<a href="/GitTest/jsp/HelloWorld/checkHelloWorld.jsp">注册</a>
+		<a href="/HelloWorld/jsp/HelloWorld/checkHelloWorld.jsp">注册</a>
 	</form>
 
 </body>

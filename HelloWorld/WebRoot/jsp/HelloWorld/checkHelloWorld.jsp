@@ -3,7 +3,7 @@
 <html>
 <title>HelloWorld</title>
 <head>
-<script type="text/javascript" src="/GitTest/JQuery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/HelloWorld/JQuery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
 	var type="";
 	
@@ -14,7 +14,7 @@
 	function checkHelloWorld(){
 		if(type == "backstage"){
 			$.ajax({
-				url:"/GitTest/checkHelloWorld.do",
+				url:"/HelloWorld/checkHelloWorld.do",
 				data:{
 					str:$("#test").val()
 				},
@@ -22,7 +22,7 @@
 				success:function(data){
 					if(data == "Y"){
 						alert("msg:HelloWorld!");
-						window.location.href="/GitTest/jsp/HelloWorld/registered.jsp";
+						window.location.href="/HelloWorld/jsp/HelloWorld/registered.jsp";
 					}else{
 						alert("HelloWorld err msg : "+data);
 					}
@@ -36,7 +36,7 @@
 				//alert(str);
 				if(str.split("helloworld") != undefined){
 					alert("msg:HelloWorld!");
-					window.location.href="/GitTest/jsp/HelloWorld/registered.jsp";
+					window.location.href="/HelloWorld/jsp/HelloWorld/registered.jsp";
 				}
 			}catch(e){
 				console.log("HelloWorld err msg : "+e.message);

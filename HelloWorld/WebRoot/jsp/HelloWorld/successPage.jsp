@@ -3,7 +3,7 @@
 <html>
 <title>HelloWorld</title>
 <head>
-<script type="text/javascript" src="/GitTest/JQuery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/HelloWorld/JQuery/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
 	
 	var remaining_time = 3;
@@ -15,7 +15,7 @@
 		remaining_time = remaining_time - 1;
 		alert(remaining_time == 0);
 		if(remaining_time == 0){
-			window.location.href="/GitTest/index.do";
+			window.location.href="/HelloWorld/index.do";
 		}
 		$("#remaining_time").html(remaining_time);
 		setTimeout("show_time()",1000); 	

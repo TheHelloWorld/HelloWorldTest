@@ -2,7 +2,7 @@
 <html>
 <title>HelloWorld</title>
 <head>
-	<script type="text/javascript" src="/GitTest/JQuery/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="/HelloWorld/JQuery/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 		var mailFlag = true;
 		var passwordFlag = true;
@@ -15,7 +15,7 @@
 				$("#username").focus(); 
 			}else{
 				$.ajax({
-					url:"/GitTest/checkEmail.do",
+					url:"/HelloWorld/checkEmail.do",
 					data:{
 						email:$("#username").val()
 					},
@@ -51,7 +51,7 @@
 		
 		function submitAccount(){
 			$.ajax({
-				url:"/GitTest/addAccount.do",
+				url:"/HelloWorld/addAccount.do",
 				data:{
 					username:$("#username").val(),
 					password:$("#secondPassword").val()
@@ -61,7 +61,7 @@
 					if(passwordFlag && mailFlag){
 						if(data == "Y"){
 							alert("您已注册成功，请去您的邮箱激活");
-							window.location.href="/GitTest/jsp/HelloWorld/index.jsp";
+							window.location.href="/HelloWorld/jsp/HelloWorld/index.jsp";
 						}else{
 							alert(data);
 						}

@@ -3,7 +3,7 @@
 <html>
 <title>HelloWorld</title>
 <head>
-<script type="text/javascript" src="/GitTest/JQuery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/HelloWorld/JQuery/jquery-1.11.3.min.js"></script>
 
 </head>
 <body>
