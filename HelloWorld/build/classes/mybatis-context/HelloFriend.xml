@@ -2,4 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 <mapper namespace="com.helloworld.dao.HelloFriendDao">
 	
+	<insert id="addFriendRequest" parameterType="com.helloworld.bean.Friend">
+		<![CDATA[
+			insert into friend(create_time,username,friendname,userid,friendid,status) values(now(),#{username},#{friendname},#{userid},#{friendid},'REQUEST')
+		]]>
+	</insert>
+	
+	<delete id="removeFriendByIds">
+		delete from friend where userid = #{userid} and friendid = #{friendid}
+	</delete>
+	
+	<update id="updateFriendInBlack">
+		update friend set status = 'BLACK' where userid = #{userid} and firendid = #{friendid}
+	</update>
+	
+	
+	
 </mapper>

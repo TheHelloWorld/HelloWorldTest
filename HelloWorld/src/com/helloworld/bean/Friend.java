@@ -12,7 +12,7 @@ public class Friend {
 	
 	private Long userid;
 	
-	private Long firendid;
+	private Long friendid;
 	
 	private String status;
 
@@ -56,12 +56,13 @@ public class Friend {
 		this.userid = userid;
 	}
 
-	public Long getFirendid() {
-		return firendid;
+	
+	public Long getFriendid() {
+		return friendid;
 	}
 
-	public void setFirendid(Long firendid) {
-		this.firendid = firendid;
+	public void setFriendid(Long friendid) {
+		this.friendid = friendid;
 	}
 
 	public String getStatus() {

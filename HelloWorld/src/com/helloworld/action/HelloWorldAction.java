@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
 import org.mvel2.MVEL;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,8 @@ import com.helloworld.util.MailUtil;
 
 @Controller 
 public class HelloWorldAction {
+	
+	private static final Logger logger = Logger.getLogger(HelloWorldAction.class);
 	
 	@Resource
     private HelloWorldService helloWorldService;
@@ -75,6 +78,7 @@ public class HelloWorldAction {
 			mail.sendOne(username, "激活您的账号", "请点击下面链接激活您的账号<a href='localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"'>激活链接</a><br/>如果链接不能点击请复制以下链接到您的浏览器地址栏：localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"");
 			return  "Y";
 		}catch(Exception e){
+			logger.error("addAccount err msg:"+e.getMessage());
 			return e.getMessage();
 		}		
 	 }
@@ -94,14 +98,16 @@ public class HelloWorldAction {
 				return "successPage";
 			}else{
 				if("TRUE".equals(status)){
+					logger.info("updateStatusById msg: already activity");
 					return "statusTrue";
 				}else if(count != 0){
+					logger.info("updateStatusById msg: account dosent exists");
 					return "countErr";
 				}
 				return "404";
 			}	
 		}catch(Exception e){
-			e.getMessage();
+			logger.error("updateStatusById err msg:"+e.getMessage());
 			return "500";
 		}		
 	 }
@@ -124,6 +130,7 @@ public class HelloWorldAction {
 	    		return "请编写HelloWorld Demo!";
 	    	}  	
 	    }catch(Exception e){
+	    	logger.error("executeRedis err msg:"+e.getMessage());
 	    	return "error:"+e.getMessage();
 	    }
 	}

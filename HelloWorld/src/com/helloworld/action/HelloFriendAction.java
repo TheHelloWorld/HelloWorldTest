@@ -2,14 +2,18 @@ package com.helloworld.action;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.helloworld.bean.Friend;
 import com.helloworld.service.HelloFriendService;
 
 @Controller 
 public class HelloFriendAction {
+	
+	private static final Logger logger = Logger.getLogger(HelloFriendAction.class);
 	
 	@Resource
 	private HelloFriendService helloFriendService;
@@ -20,9 +24,19 @@ public class HelloFriendAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "addFriend")
-	public String addFriend(){
-		return "N";
-		
+	public String addFriend(String username,Long userid,Long friendid,String friendname){
+		try{
+			Friend friend = new Friend();
+			friend.setUserid(userid);
+			friend.setFriendid(friendid);
+			friend.setFriendname(friendname);
+			friend.setUsername(username);
+			helloFriendService.addFriendRequest(friend);		
+			return "Y";
+		}catch(Exception e){
+			logger.error("addFriend err msg:"+e.getMessage());
+			return "N";
+		}
 	}
 	
 	/**
@@ -31,8 +45,14 @@ public class HelloFriendAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "removeFriend")
-	public String removeFriend(){
-		return "N";
+	public String removeFriend(Long myId,Long FriendId){
+		try{
+			helloFriendService.removeFriendByIds(myId, FriendId);
+			return "Y";
+		}catch(Exception e){
+			logger.error("removeFriend err msg:"+e.getMessage());
+			return "N";
+		}
 	}
 	
 	/**
@@ -41,8 +61,14 @@ public class HelloFriendAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "blackFriend")
-	public String blackFriend(){
-		return "N";
+	public String blackFriend(Long userid,Long friendid){
+		try{
+			helloFriendService.updateFriendInBlack(userid, friendid);
+			return "Y";
+		}catch(Exception e){
+			logger.error("blackFriend err msg:"+e.getMessage());
+			return "N";
+		}
 	}
 	
 }

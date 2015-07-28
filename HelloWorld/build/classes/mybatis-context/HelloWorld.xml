@@ -7,7 +7,7 @@
 	</select>
 	
 	<insert id="addUser" parameterType="com.helloworld.bean.Account" useGeneratedKeys="true" keyProperty="id">
-		<![CDATA[	
+		<![CDATA[
 			insert into account(username,password,status) values(#{username},#{password},'FALSE')
 		]]>
 	</insert>
