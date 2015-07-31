@@ -3,37 +3,37 @@
 <mapper namespace="com.helloworld.dao.HelloWorldDao">	
 	
 	<select id="checkUser" resultType="Integer" >
-		select count(1) from account where username = #{username} and password = #{password} and status = 'TRUE'
+		select count(1) from hello_account where username = #{username} and password = #{password} and status = 'TRUE'
 	</select>
 	
 	<insert id="addUser" parameterType="com.helloworld.bean.Account" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
-			insert into account(username,password,status) values(#{username},#{password},'FALSE')
+			insert into hello_account(username,password,status) values(#{username},#{password},'FALSE')
 		]]>
 	</insert>
 	
 	<update id="updateStatusById" parameterType="Long">
-		update account set status = 'TRUE' where id = #{id}
+		update hello_account set status = 'TRUE' where id = #{id}
 	</update>
 	
 	<update id="updateAccountById" parameterType="com.helloworld.bean.Account">
-		update account set username = #{username},password = #{password} where id = #{id}
+		update hello_account set username = #{username},password = #{password} where id = #{id}
 	</update>
 	
 	<select id="getCountByEmail" parameterType="java.lang.String" resultType="Integer">
-		select count(1) from account where username = #{email}
+		select count(1) from hello_account where username = #{email}
 	</select>
 	
 	<select id="getStatusById" parameterType="Long" resultType="java.lang.String">
-		select status from account where id = #{id}
+		select status from hello_account where id = #{id}
 	</select>
 	
 	<select id="getStatusByAccount" resultType="java.lang.String">
-		select status from account where username = #{username} and password = #{password}
+		select status from hello_account where username = #{username} and password = #{password}
 	</select>
 	
 	<select id="getNumById" parameterType="Long" resultType="Integer">
-		select count(1) from account where id = #{id}
+		select count(1) from hello_account where id = #{id}
 	</select>
 	
 	

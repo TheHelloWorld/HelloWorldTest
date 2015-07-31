@@ -4,18 +4,20 @@
 	
 	<insert id="addFriendRequest" parameterType="com.helloworld.bean.Friend">
 		<![CDATA[
-			insert into friend(create_time,username,friendname,userid,friendid,status) values(now(),#{username},#{friendname},#{userid},#{friendid},'REQUEST')
+			insert into hello_friend(create_time,username,friendname,userid,friendid,status) values(now(),#{username},#{friendname},#{userid},#{friendid},'REQUEST')
 		]]>
 	</insert>
 	
 	<delete id="removeFriendByIds">
-		delete from friend where userid = #{userid} and friendid = #{friendid}
+		delete from hello_friend where userid = #{userid} and friendid = #{friendid}
 	</delete>
 	
 	<update id="updateFriendInBlack">
-		update friend set status = 'BLACK' where userid = #{userid} and firendid = #{friendid}
+		update hello_friend set status = 'BLACK' where userid = #{userid} and firendid = #{friendid}
 	</update>
 	
-	
+	<select id="getFriendById" parameterType="Long" resultType="com.helloworld.bean.friend">
+		select  * from hello_friend where userid = #{userid} and status != "BLACK"
+	</select>
 	
 </mapper>

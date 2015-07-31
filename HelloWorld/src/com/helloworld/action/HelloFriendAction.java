@@ -1,9 +1,12 @@
 package com.helloworld.action;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -68,6 +71,22 @@ public class HelloFriendAction {
 		}catch(Exception e){
 			logger.error("blackFriend err msg:"+e.getMessage());
 			return "N";
+		}
+	}
+	
+	/**
+	 * 根据id获得好友列表
+	 * @return
+	 */
+	@RequestMapping(value = "getFirends")
+	public String getFirendsById(Long userid,Model model){
+		try{
+			List<Friend> friendList = helloFriendService.getFriendById(userid);
+			model.addAttribute("friendList", friendList);
+			return "friendPage";
+		}catch(Exception e){
+			logger.error("getFirendsById err msg:"+e.getMessage());
+			return "500";
 		}
 	}
 	

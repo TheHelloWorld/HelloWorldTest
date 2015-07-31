@@ -1,6 +1,8 @@
 package com.helloworld.dao;
 
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import com.helloworld.bean.Friend;
@@ -27,5 +29,12 @@ public interface HelloFriendDao {
 	 * @param friendid
 	 */
 	public void updateFriendInBlack(@Param("userid")Long userid,@Param("friendid")Long friendid);
+	
+	/**
+	 * 根据id获得好友名单
+	 * @param userid
+	 * @return
+	 */
+	public List<Friend> getFriendyId(@Param("userid")Long userid);
 	
 }
