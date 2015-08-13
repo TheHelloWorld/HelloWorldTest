@@ -32,7 +32,8 @@ public class HelloWorldAction {
 	  * @return
 	  */
 	 @RequestMapping(value = "index")
-	 public String goIndex(String username,String password){		 
+	 public String goIndex(String username,String password){
+		 
 		 return "index";
 	 }
 	 
