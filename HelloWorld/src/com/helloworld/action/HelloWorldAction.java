@@ -79,7 +79,7 @@ public class HelloWorldAction {
 			mail.sendOne(username, "激活您的账号", "请点击下面链接激活您的账号<a href='localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"'>激活链接</a><br/>如果链接不能点击请复制以下链接到您的浏览器地址栏：localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"");
 			return  "Y";
 		}catch(Exception e){
-			logger.error("addAccount err msg:"+e.getMessage());
+			logger.error("HelloWorld err addAccount Action msg:"+e.getMessage());
 			return e.getMessage();
 		}		
 	 }
@@ -108,7 +108,7 @@ public class HelloWorldAction {
 				return "404";
 			}	
 		}catch(Exception e){
-			logger.error("updateStatusById err msg:"+e.getMessage());
+			logger.error("HelloWorld err updateStatusById Action msg:"+e.getMessage());
 			return "500";
 		}		
 	 }
@@ -131,7 +131,7 @@ public class HelloWorldAction {
 	    		return "请编写HelloWorld Demo!";
 	    	}  	
 	    }catch(Exception e){
-	    	logger.error("executeRedis err msg:"+e.getMessage());
+	    	logger.error("HelloWorld err executeRedis Action msg:"+e.getMessage());
 	    	return "error:"+e.getMessage();
 	    }
 	}

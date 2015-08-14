@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.ibatis.annotations.Param;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.helloworld.bean.Friend;
@@ -13,6 +13,8 @@ import com.helloworld.service.HelloFriendService;
 
 @Service("helloFriendService")
 public class HelloFriendServiceImpl implements HelloFriendService{
+	
+	private static final Logger logger = Logger.getLogger(HelloFriendServiceImpl.class);
 	
 	@Resource
     private HelloFriendDao helloFriendDao;
@@ -23,7 +25,11 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 	 */
 	@Override
 	public void addFriendRequest(Friend friend){
-		helloFriendDao.addFriendRequest(friend);
+		try{
+			helloFriendDao.addFriendRequest(friend);
+		}catch(Exception e){
+			logger.error("HelloFriend err addFriendRequest ServiceImple msg:"+e.getMessage());
+		}		
 	}
 	
 	
@@ -34,8 +40,13 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 	 */
 	@Override
 	public void removeFriendByIds(Long userid,Long friendid){
-		helloFriendDao.removeFriendByIds(userid, friendid);
-		helloFriendDao.removeFriendByIds(friendid, userid);
+		try{
+			helloFriendDao.removeFriendByIds(userid, friendid);
+			helloFriendDao.removeFriendByIds(friendid, userid);
+		}catch(Exception e){
+			logger.error("HelloFriend err removeFriendByIds ServiceImple msg:"+e.getMessage());
+		}	
+		
 	}
 	
 	/**
@@ -44,8 +55,13 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 	 * @param friendid
 	 */
 	@Override
-	public void updateFriendInBlack(@Param("userid")Long userid,@Param("friendid")Long friendid){
-		helloFriendDao.updateFriendInBlack(userid, friendid);
+	public void updateFriendInBlack(Long userid,Long friendid){
+		try{
+			helloFriendDao.updateFriendInBlack(userid, friendid);
+		}catch(Exception e){
+			logger.error("HelloFriend err updateFriendInBlack ServiceImple msg:"+e.getMessage());
+		}	
+		
 	}
 	
 	/**
@@ -53,6 +69,13 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 	 */
 	@Override
 	public List<Friend> getFriendById(Long userid){
-		return helloFriendDao.getFriendyId(userid);
+		try{
+			List<Friend> list = helloFriendDao.getFriendyId(userid);
+			return list;
+		}catch(Exception e){
+			logger.error("HelloFriend err getFriendById ServiceImple msg:"+e.getMessage());
+			return null;
+		}	
+		
 	}
 }

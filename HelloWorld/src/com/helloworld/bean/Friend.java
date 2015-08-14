@@ -2,18 +2,25 @@ package com.helloworld.bean;
 
 public class Friend {
 	
+	/** id*/
 	private Long id;
 	
+	/** 创建时间*/
 	private String create_time;
 	
+	/** 本人名称*/
 	private String username;
 	
+	/** 好友名称*/
 	private String friendname;
 	
+	/** 本人id*/
 	private Long userid;
 	
+	/** 好友id*/
 	private Long friendid;
 	
+	/** 好友状态*/
 	private String status;
 
 	public Long getId() {

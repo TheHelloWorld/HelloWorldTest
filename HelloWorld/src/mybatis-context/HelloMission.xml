@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.helloworld.dao.HelloMissionDao">
+	
+	<insert id="addMission" parameterType="com.helloworld.bean.Mission">
+		<![CDATA[
+			insert into hello_mission(content,experience,publisher_id,owner_id,type,num,create_time,dead_line,status) values(#{content},#{experience},#{publisher_id},0,#{type},#{num},now(),#{dead_line},'INIT')
+		]]>
+	</insert>
+	
+	<update id="updateMissionById">
+		update hello_mission set owner_id = #{owner_id} where id = #{id}
+	</update>
+	
+	<update id="updateMissionStatusById">
+		update hello_mission set status = #{status} where id = #{id}
+	</update>
+	
+	<select id="getAlLAvailableMission" resultType="com.helloworld.bean.Mission">
+		select  * from hello_mission where status = 'INIT' and owner_id = 0
+	</select>
+	
+	<select id="getMessionByOwnerId"  resultType="com.helloworld.bean.Mission" parameterType="Long">
+		select  * from hello_mission where status = 'IN' and owner_id = #{owner_id}
+	</select>
+	
+</mapper>
