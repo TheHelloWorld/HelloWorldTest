@@ -29,7 +29,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 		try{
 			helloMissionDao.addMission(mission);
 		}catch(Exception e){
-			logger.error("HelloMission err addMission ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloMission err ServiceImple addMission msg:"+e.getMessage());
 		}	
 	}
 	
@@ -43,7 +43,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 		try{
 			helloMissionDao.updateMissionById(owner_id, id);
 		}catch(Exception e){
-			logger.error("HelloMission err updateMissionById ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloMission err ServiceImple updateMissionById msg:"+e.getMessage());
 		}	
 	}
 	
@@ -56,7 +56,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 		try{
 			helloMissionDao.updateMissionStatusById(status, id);
 		}catch(Exception e){
-			logger.error("HelloMission err updateMissionStatusById ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloMission err ServiceImple updateMissionStatusById msg:"+e.getMessage());
 		}	
 	}
 	
@@ -69,7 +69,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			List<Mission> list = helloMissionDao.getAlLAvailableMission();
 			return list;
 		}catch(Exception e){
-			logger.error("HelloMission err getAlLAvailableMission ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloMission err ServiceImple getAlLAvailableMission msg:"+e.getMessage());
 			return null;
 		}
 		
@@ -85,7 +85,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			List<Mission> list = helloMissionDao.getMessionByOwnerId(owner_id);
 			return list;
 		}catch(Exception e){
-			logger.error("HelloMission err getMessionByOwnerId ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloMission err ServiceImple getMessionByOwnerId msg:"+e.getMessage());
 			return null;
 		}	
 	}

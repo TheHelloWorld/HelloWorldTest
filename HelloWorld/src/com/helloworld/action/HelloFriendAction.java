@@ -37,7 +37,7 @@ public class HelloFriendAction {
 			helloFriendService.addFriendRequest(friend);		
 			return "Y";
 		}catch(Exception e){
-			logger.error("addFriend err msg:"+e.getMessage());
+			logger.error("HelloFriend err Action addFriend msg:"+e.getMessage());
 			return "N";
 		}
 	}
@@ -53,7 +53,7 @@ public class HelloFriendAction {
 			helloFriendService.removeFriendByIds(myId, FriendId);
 			return "Y";
 		}catch(Exception e){
-			logger.error("removeFriend err msg:"+e.getMessage());
+			logger.error("HelloFriend err Action removeFriend msg:"+e.getMessage());
 			return "N";
 		}
 	}
@@ -69,7 +69,7 @@ public class HelloFriendAction {
 			helloFriendService.updateFriendInBlack(userid, friendid);
 			return "Y";
 		}catch(Exception e){
-			logger.error("blackFriend err msg:"+e.getMessage());
+			logger.error("HelloFriend err Action blackFriend msg:"+e.getMessage());
 			return "N";
 		}
 	}
@@ -85,7 +85,7 @@ public class HelloFriendAction {
 			model.addAttribute("friendList", friendList);
 			return "friendPage";
 		}catch(Exception e){
-			logger.error("getFirendsById err msg:"+e.getMessage());
+			logger.error("HelloFriend err Action getFirendsById msg:"+e.getMessage());
 			return "500";
 		}
 	}

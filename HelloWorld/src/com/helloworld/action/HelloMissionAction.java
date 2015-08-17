@@ -1,7 +1,5 @@
 package com.helloworld.action;
 
-
-
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -34,7 +32,7 @@ public class HelloMissionAction {
 		try{
 			helloMissionService.addMission(mission);
 		}catch(Exception e){
-			logger.error("HelloMission err addMission Action msg:"+e.getMessage());
+			logger.error("HelloMission err Action addMission msg:"+e.getMessage());
 		}
 		
 	}

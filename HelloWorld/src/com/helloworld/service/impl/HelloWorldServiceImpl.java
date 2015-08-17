@@ -35,7 +35,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 				return  "N";
 			}
 		}catch(Exception e){
-			logger.error("HelloWorld err checkUser ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloWorld err ServiceImple checkUser msg:"+e.getMessage());
 			return "N";
 		}	
 	}
@@ -51,7 +51,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			account.setPassword(MD5Util.GetMD5Code(account.getPassword()));
 			helloWorldDao.addUser(account);
 		}catch(Exception e){
-			logger.error("HelloWorld err addUser ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloWorld err ServiceImple addUser msg:"+e.getMessage());
 		}
 	}
 	
@@ -64,7 +64,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		try{
 			helloWorldDao.updateStatusById(id);
 		}catch(Exception e){
-			logger.error("HelloWorld err updateStatusById ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloWorld err ServiceImple updateStatusById msg:"+e.getMessage());
 		}		
 	}
 	
@@ -77,7 +77,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		try{
 			helloWorldDao.updateAccountById(account);
 		}catch(Exception e){
-			logger.error("HelloWorld err updateAccountById ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloWorld err ServiceImple updateAccountById msg:"+e.getMessage());
 		}		
 	}
 	
@@ -90,7 +90,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 				return "Y";
 			}
 		}catch(Exception e){
-			logger.error("HelloWorld err checkEmail ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloWorld err ServiceImple checkEmail msg:"+e.getMessage());
 			return "N";
 		}
 	}
@@ -106,7 +106,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			Integer num = helloWorldDao.getNumById(id);
 			return num;
 		}catch(Exception e){
-			logger.error("HelloWorld err getNumById ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloWorld err ServiceImple getNumById msg:"+e.getMessage());
 			return null;
 		}		
 	}
@@ -122,7 +122,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			String str = helloWorldDao.getStatusById(id);
 			return str;
 		}catch(Exception e){
-			logger.error("HelloWorld err getStatusById ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloWorld err ServiceImple getStatusById msg:"+e.getMessage());
 			return null;
 		}
 	}
@@ -138,7 +138,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			String str = helloWorldDao.getStatusByAccount(account);
 			return  str;
 		}catch(Exception e){
-			logger.error("HelloWorld err getStatusByAccount ServiceImpl msg:"+e.getMessage());
+			logger.error("HelloWorld err ServiceImple getStatusByAccount msg:"+e.getMessage());
 			return null;
 		}	
 	}
