@@ -42,6 +42,7 @@ public class HelloFriendAction {
 		}
 	}
 	
+	
 	/**
 	 * 删除好友
 	 * @return
@@ -58,6 +59,7 @@ public class HelloFriendAction {
 		}
 	}
 	
+	
 	/**
 	 * 拉黑好友
 	 * @return
@@ -73,6 +75,7 @@ public class HelloFriendAction {
 			return "N";
 		}
 	}
+	
 	
 	/**
 	 * 根据id获得好友列表

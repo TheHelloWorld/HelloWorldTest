@@ -8,8 +8,17 @@
 		]]>
 	</insert>
 	
-	<update id="updateMissionById">
+	<update id="updateMissionOwnerById">
 		update hello_mission set owner_id = #{owner_id} where id = #{id}
+	</update>
+	
+	<update id="updateMissionById"  parameterType="com.helloworld.bean.Mission">
+		update hello_mission set content = #{content},
+								experience = #{experience},
+								type = #{type},
+								num = #{num},
+								dead_line = #{dead_line} 
+								 where id = #{id}
 	</update>
 	
 	<update id="updateMissionStatusById">

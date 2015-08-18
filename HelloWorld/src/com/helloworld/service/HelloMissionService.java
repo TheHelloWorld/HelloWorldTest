@@ -15,14 +15,19 @@ public interface HelloMissionService {
 	 * @param mission
 	 */
 	public void addMission(Mission mission);
-	
-	
+		
 	/**
 	 * 接受任务
 	 * @param owner_id
 	 * @param id
 	 */
-	public void updateMissionById(Long owner_id,Long id);
+	public void updateMissionOwnerById(Long owner_id,Long id);
+	
+	/**
+	 * 修改任务
+	 * @param mission
+	 */
+	public void updateMissionById(Mission mission);
 	
 	/**
 	 * 根据id修改任务状态

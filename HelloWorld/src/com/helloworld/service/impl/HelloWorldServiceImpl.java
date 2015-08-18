@@ -40,6 +40,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		}	
 	}
 	
+	
 	/**
 	 * 添加用户
 	 * @param account
@@ -55,6 +56,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		}
 	}
 	
+	
 	/**
 	 * 根据id修改用户状态
 	 * @param id
@@ -67,6 +69,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			logger.error("HelloWorld err ServiceImple updateStatusById msg:"+e.getMessage());
 		}		
 	}
+	
 	
 	/**
 	 * 用户修改资料
@@ -81,6 +84,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		}		
 	}
 	
+	
 	@Override
 	public String checkEmail(String email){
 		try{
@@ -94,6 +98,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			return "N";
 		}
 	}
+	
 	
 	/**
 	 * 根据id判断账户是否存在
@@ -111,6 +116,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		}		
 	}
 	
+	
 	/**
 	 * 根据id获得账户激活状态
 	 * @param id
@@ -126,6 +132,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			return null;
 		}
 	}
+	
 	
 	/**
 	 * 根据用户名、密码获得账户激活状态

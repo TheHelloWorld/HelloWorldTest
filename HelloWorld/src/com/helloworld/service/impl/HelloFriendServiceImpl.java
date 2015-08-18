@@ -49,6 +49,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 		
 	}
 	
+	
 	/**
 	 * 拉黑好友
 	 * @param userid
@@ -63,6 +64,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 		}	
 		
 	}
+	
 	
 	/**
 	 * 根据id获得好友列表

@@ -15,13 +15,18 @@ public interface HelloMissionDao {
 	 */
 	public void addMission(Mission mission);
 	
-	
+	/**
+	 * 修改任务
+	 * @param mission
+	 */
+	public void updateMissionById(Mission mission);
+		
 	/**
 	 * 接受任务
 	 * @param owner_id
 	 * @param id
 	 */
-	public void updateMissionById(@Param("owner_id")Long owner_id,@Param("id")Long id);
+	public void updateMissionOwnerById(@Param("owner_id")Long owner_id,@Param("id")Long id);
 	
 	/**
 	 * 根据id修改任务状态

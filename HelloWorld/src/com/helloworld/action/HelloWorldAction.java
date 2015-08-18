@@ -36,6 +36,7 @@ public class HelloWorldAction {
 		 return "index";
 	 }
 	 
+	 
 	 /**
 	  * 检查用户名密码是否正确
 	  * @param username
@@ -48,6 +49,7 @@ public class HelloWorldAction {
 		return helloWorldService.checkUser(username,password);
 	 }
 	 
+	 
 	 /**
 	  * 检查Email是否被占用
 	  * @param email
@@ -59,6 +61,7 @@ public class HelloWorldAction {
 		return helloWorldService.checkEmail(email);		
 	 }
 	 
+	 
 	 /**
 	  * 添加用户
 	  * @param username
@@ -68,8 +71,7 @@ public class HelloWorldAction {
 	 @ResponseBody
 	 @RequestMapping(value="addAccount", method = RequestMethod.POST, produces = "plain/text; charset=UTF-8")
 	 public String addAccount(String username,String password){
-		try{
-			
+		try{		
 			Account account = new Account();
 			account.setUsername(username);
 			account.setPassword(password);
@@ -82,6 +84,7 @@ public class HelloWorldAction {
 			return e.getMessage();
 		}		
 	 }
+	 
 	 
 	 /**
 	  * 激活账户
@@ -111,6 +114,7 @@ public class HelloWorldAction {
 			return "500";
 		}		
 	 }
+	 
 	 
 	 /**
 	  * 检查HelloWorld Demo

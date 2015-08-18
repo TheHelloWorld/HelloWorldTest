@@ -1,7 +1,5 @@
 package com.helloworld.action;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
@@ -23,6 +21,7 @@ public class HelloMissionAction {
 	@Resource
     private HelloMissionService helloMissionService;
 	 
+	
 	/**
 	 * 添加任务
 	 * @param mission
@@ -33,8 +32,7 @@ public class HelloMissionAction {
 			helloMissionService.addMission(mission);
 		}catch(Exception e){
 			logger.error("HelloMission err Action addMission msg:"+e.getMessage());
-		}
-		
+		}	
 	}
 	
 	
@@ -43,35 +41,42 @@ public class HelloMissionAction {
 	 * @param owner_id
 	 * @param id
 	 */
-	public void updateMissionById(Long owner_id,Long id){
-		helloMissionService.updateMissionById(owner_id, id);
+	@RequestMapping(value = "updateMissionOwnerById")
+	public void updateMissionOwnerById(Long owner_id,Long id){
+		try{
+			helloMissionService.updateMissionOwnerById(owner_id, id);
+		}catch(Exception e){
+			logger.error("HelloMission err Action updateMissionOwnerById msg:"+e.getMessage());
+		}		
 	}
+	
+	
+	/**
+	 * 修改任务
+	 * @param mission
+	 */
+	@RequestMapping(value = "updateMissionById")
+	public void updateMissionById(Mission mission){
+		try{
+			helloMissionService.updateMissionById(mission);
+		}catch(Exception e){
+			logger.error("HelloMission err Action updateMissionById msg:"+e.getMessage());
+		}		
+	}
+	
 	
 	/**
 	 * 根据id修改任务状态
 	 * @param status
 	 * @param id
 	 */
+	@RequestMapping(value = "updateMissionStatusById")
 	public void updateMissionStatusById(String status,Long id){
-		helloMissionService.updateMissionStatusById(status, id);
+		try{
+			helloMissionService.updateMissionStatusById(status, id);
+		}catch(Exception e){
+			logger.error("HelloMission err Action updateMissionStatusById msg:"+e.getMessage());
+		}
 	}
-	
-	/**
-	 * 获得所有可用任务
-	 * @return
-	 */
-	public List<Mission> getAlLAvailableMission(){
-		return helloMissionService.getAlLAvailableMission();
-	}
-	
-	/**
-	 * 根据owner_id获得所有该账户下任务
-	 * @param owner_id
-	 * @return
-	 */
-	public List<Mission> getMessionByOwnerId(Long owner_id){
-		return helloMissionService.getMessionByOwnerId(owner_id);
-	}
-	 
  	
 }

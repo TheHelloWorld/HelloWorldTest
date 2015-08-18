@@ -39,13 +39,27 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	 * @param owner_id
 	 * @param id
 	 */
-	public void updateMissionById(Long owner_id,Long id){
+	public void updateMissionOwnerById(Long owner_id,Long id){
 		try{
-			helloMissionDao.updateMissionById(owner_id, id);
+			helloMissionDao.updateMissionOwnerById(owner_id, id);
+		}catch(Exception e){
+			logger.error("HelloMission err ServiceImple updateMissionOwnerById msg:"+e.getMessage());
+		}	
+	}
+	
+	
+	/**
+	 * 修改任务
+	 * @param mission
+	 */
+	public void updateMissionById(Mission mission){
+		try{
+			helloMissionDao.updateMissionById(mission);
 		}catch(Exception e){
 			logger.error("HelloMission err ServiceImple updateMissionById msg:"+e.getMessage());
 		}	
 	}
+	
 	
 	/**
 	 * 根据id修改任务状态
@@ -59,6 +73,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			logger.error("HelloMission err ServiceImple updateMissionStatusById msg:"+e.getMessage());
 		}	
 	}
+	
 	
 	/**
 	 * 获得所有可用任务
@@ -74,6 +89,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 		}
 		
 	}
+	
 	
 	/**
 	 * 根据owner_id获得所有该账户下任务
