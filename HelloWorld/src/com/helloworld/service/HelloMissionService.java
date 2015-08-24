@@ -49,4 +49,11 @@ public interface HelloMissionService {
 	 */
 	public List<Mission> getMessionByOwnerId(Long owner_id);
 	
+	/**
+	 * 根据id修改账户经验值
+	 * @param experience
+	 * @param id
+	 */
+	public void updateExperienceById(Integer experience,Long id);
+	
 }

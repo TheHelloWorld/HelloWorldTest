@@ -8,9 +8,9 @@ import com.helloworld.bean.Account;
 
 /** 
  * @Description: 这里用一句话描述这个类的作用
- * @see: BaseDataOfDayDao 此处填写需要参考的类
- * @version 2014年12月31日 上午9:31:47 
- * @author jiude.sun
+ * @see: HelloWorldDao 此处填写需要参考的类
+ * @version 2015年08月01日 上午9:31:47 
+ * @author zikun.liu
  */
 public interface HelloWorldDao
 {
@@ -68,5 +68,12 @@ public interface HelloWorldDao
 	 * @return
 	 */
 	public String getStatusByAccount(Account account);
+	
+	/**
+	 * 根据id获得账户信息
+	 * @param id
+	 * @return
+	 */
+	public Account getAccountById(Long id);
 
 }

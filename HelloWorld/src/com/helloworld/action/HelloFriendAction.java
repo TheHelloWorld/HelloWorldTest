@@ -38,6 +38,7 @@ public class HelloFriendAction {
 			return "Y";
 		}catch(Exception e){
 			logger.error("HelloFriend err Action addFriend msg:"+e.getMessage());
+			e.printStackTrace();
 			return "N";
 		}
 	}
@@ -55,6 +56,7 @@ public class HelloFriendAction {
 			return "Y";
 		}catch(Exception e){
 			logger.error("HelloFriend err Action removeFriend msg:"+e.getMessage());
+			e.printStackTrace();
 			return "N";
 		}
 	}
@@ -72,6 +74,7 @@ public class HelloFriendAction {
 			return "Y";
 		}catch(Exception e){
 			logger.error("HelloFriend err Action blackFriend msg:"+e.getMessage());
+			e.printStackTrace();
 			return "N";
 		}
 	}
@@ -89,6 +92,7 @@ public class HelloFriendAction {
 			return "friendPage";
 		}catch(Exception e){
 			logger.error("HelloFriend err Action getFirendsById msg:"+e.getMessage());
+			e.printStackTrace();
 			return "500";
 		}
 	}

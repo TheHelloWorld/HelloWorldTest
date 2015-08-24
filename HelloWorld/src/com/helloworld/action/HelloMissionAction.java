@@ -32,6 +32,7 @@ public class HelloMissionAction {
 			helloMissionService.addMission(mission);
 		}catch(Exception e){
 			logger.error("HelloMission err Action addMission msg:"+e.getMessage());
+			e.printStackTrace();
 		}	
 	}
 	
@@ -47,6 +48,7 @@ public class HelloMissionAction {
 			helloMissionService.updateMissionOwnerById(owner_id, id);
 		}catch(Exception e){
 			logger.error("HelloMission err Action updateMissionOwnerById msg:"+e.getMessage());
+			e.printStackTrace();
 		}		
 	}
 	
@@ -61,6 +63,7 @@ public class HelloMissionAction {
 			helloMissionService.updateMissionById(mission);
 		}catch(Exception e){
 			logger.error("HelloMission err Action updateMissionById msg:"+e.getMessage());
+			e.printStackTrace();
 		}		
 	}
 	
@@ -76,6 +79,7 @@ public class HelloMissionAction {
 			helloMissionService.updateMissionStatusById(status, id);
 		}catch(Exception e){
 			logger.error("HelloMission err Action updateMissionStatusById msg:"+e.getMessage());
+			e.printStackTrace();
 		}
 	}
  	

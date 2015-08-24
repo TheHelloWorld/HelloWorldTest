@@ -22,7 +22,7 @@
 				success:function(data){
 					if(data == "Y"){
 						alert("msg:HelloWorld!");
-						window.location.href="/HelloWorld/jsp/HelloWorld/registered.jsp";
+						window.location.href="/HelloWorld/jsp/HelloWorld/register/registered.jsp";
 					}else{
 						alert("HelloWorld err msg : "+data);
 					}
@@ -36,7 +36,7 @@
 				//alert(str);
 				if(str.split("helloworld") != undefined){
 					alert("msg:HelloWorld!");
-					window.location.href="/HelloWorld/jsp/HelloWorld/registered.jsp";
+					window.location.href="/HelloWorld/jsp/HelloWorld/register/registered.jsp";
 				}
 			}catch(e){
 				console.log("HelloWorld err msg : "+e.message);

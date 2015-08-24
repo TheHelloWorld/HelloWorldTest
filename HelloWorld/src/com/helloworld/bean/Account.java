@@ -13,6 +13,12 @@ public class Account {
 	
 	/** 账户状态*/
 	private String status;
+	
+	/** 经验值*/
+	private Integer experience;
+	
+	/** 当前等级*/
+	private Integer nowlevel;
 
 	public Long getId() {
 		return id;
@@ -44,6 +50,22 @@ public class Account {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public Integer getExperience() {
+		return experience;
+	}
+
+	public void setExperience(Integer experience) {
+		this.experience = experience;
+	}
+
+	public Integer getNowlevel() {
+		return nowlevel;
+	}
+
+	public void setNowlevel(Integer nowlevel) {
+		this.nowlevel = nowlevel;
 	}
 
 }

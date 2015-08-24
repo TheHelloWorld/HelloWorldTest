@@ -29,6 +29,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 			helloFriendDao.addFriendRequest(friend);
 		}catch(Exception e){
 			logger.error("HelloFriend err ServiceImple addFriendRequest msg:"+e.getMessage());
+			e.printStackTrace();
 		}		
 	}
 	
@@ -45,6 +46,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 			helloFriendDao.removeFriendByIds(friendid, userid);
 		}catch(Exception e){
 			logger.error("HelloFriend err ServiceImple removeFriendByIds msg:"+e.getMessage());
+			e.printStackTrace();
 		}	
 		
 	}
@@ -61,6 +63,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 			helloFriendDao.updateFriendInBlack(userid, friendid);
 		}catch(Exception e){
 			logger.error("HelloFriend err ServiceImple updateFriendInBlack msg:"+e.getMessage());
+			e.printStackTrace();
 		}	
 		
 	}
@@ -76,6 +79,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 			return list;
 		}catch(Exception e){
 			logger.error("HelloFriend err ServiceImple getFriendById msg:"+e.getMessage());
+			e.printStackTrace();
 			return null;
 		}	
 		

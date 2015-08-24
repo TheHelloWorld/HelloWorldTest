@@ -58,5 +58,12 @@ public interface HelloWorldService {
 	 */
 	public String getStatusByAccount(Account account);
 	
+	/**
+	 * 根据id获得账户信息
+	 * @param id
+	 * @return
+	 */
+	public Account getAccountById(Long id);
+	
 
 }

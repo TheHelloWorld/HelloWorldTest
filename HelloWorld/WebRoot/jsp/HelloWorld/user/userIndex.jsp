@@ -6,5 +6,10 @@
 <script type="text/javascript" src="/HelloWorld/JQuery/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-	userIndex
+	<c:if test="${olrBaseFunctionQuery.getList().size() ==0}">
+		目前还没有任务
+	</c:if>
+	<c:if test="${olrBaseFunctionQuery.getList().size() > 0}">
+		
+	</c:if>
 </body>

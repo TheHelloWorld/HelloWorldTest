@@ -36,5 +36,9 @@
 		select count(1) from hello_account where id = #{id}
 	</select>
 	
+	<select id="getAccountById" parameterType="Long" resultType="com.helloworld.bean.Account">
+		select a.*,l.nowlevel from hello_account a,(select min(level) nowlevel from hello_level where experience > (select experience from hello_account where id = #{id})) l where a.id = #{id}
+	</select>
+	
 	
 </mapper>

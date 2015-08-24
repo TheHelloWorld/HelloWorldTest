@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.mvel2.MVEL;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,7 +33,9 @@ public class HelloWorldAction {
 	  * @return
 	  */
 	 @RequestMapping(value = "index")
-	 public String goIndex(String username,String password){ 
+	 public String goIndex(Long id,Model model){ 
+		 Account account = helloWorldService.getAccountById(id);
+		 model.addAttribute("account",account);
 		 return "index";
 	 }
 	 
@@ -81,6 +84,7 @@ public class HelloWorldAction {
 			return  "Y";
 		}catch(Exception e){
 			logger.error("HelloWorld err Action addAccount msg:"+e.getMessage());
+			e.printStackTrace();
 			return e.getMessage();
 		}		
 	 }
@@ -111,6 +115,7 @@ public class HelloWorldAction {
 			}	
 		}catch(Exception e){
 			logger.error("HelloWorld err Action updateStatusById msg:"+e.getMessage());
+			e.printStackTrace();
 			return "500";
 		}		
 	 }
@@ -135,6 +140,7 @@ public class HelloWorldAction {
 	    	}  	
 	    }catch(Exception e){
 	    	logger.error("HelloWorld err Action executeRedis msg:"+e.getMessage());
+	    	e.printStackTrace();
 	    	return "error:"+e.getMessage();
 	    }
 	}

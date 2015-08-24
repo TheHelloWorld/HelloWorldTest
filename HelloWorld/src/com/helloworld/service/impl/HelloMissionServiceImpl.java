@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.helloworld.bean.Mission;
 import com.helloworld.dao.HelloMissionDao;
+import com.helloworld.dao.HelloWorldDao;
 import com.helloworld.service.HelloMissionService;
 
 @Service("helloMissionService")
@@ -19,6 +20,9 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	
 	@Resource
     private HelloMissionDao helloMissionDao;
+	
+	@Resource
+    private HelloWorldDao helloWorldDao;
 	
 
 	/**
@@ -30,6 +34,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			helloMissionDao.addMission(mission);
 		}catch(Exception e){
 			logger.error("HelloMission err ServiceImple addMission msg:"+e.getMessage());
+			e.printStackTrace();
 		}	
 	}
 	
@@ -44,6 +49,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			helloMissionDao.updateMissionOwnerById(owner_id, id);
 		}catch(Exception e){
 			logger.error("HelloMission err ServiceImple updateMissionOwnerById msg:"+e.getMessage());
+			e.printStackTrace();
 		}	
 	}
 	
@@ -57,6 +63,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			helloMissionDao.updateMissionById(mission);
 		}catch(Exception e){
 			logger.error("HelloMission err ServiceImple updateMissionById msg:"+e.getMessage());
+			e.printStackTrace();
 		}	
 	}
 	
@@ -71,6 +78,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			helloMissionDao.updateMissionStatusById(status, id);
 		}catch(Exception e){
 			logger.error("HelloMission err ServiceImple updateMissionStatusById msg:"+e.getMessage());
+			e.printStackTrace();
 		}	
 	}
 	
@@ -85,6 +93,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			return list;
 		}catch(Exception e){
 			logger.error("HelloMission err ServiceImple getAlLAvailableMission msg:"+e.getMessage());
+			e.printStackTrace();
 			return null;
 		}
 		
@@ -102,8 +111,26 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			return list;
 		}catch(Exception e){
 			logger.error("HelloMission err ServiceImple getMessionByOwnerId msg:"+e.getMessage());
+			e.printStackTrace();
 			return null;
 		}	
+	}
+	
+	
+	/**
+	 * 根据id修改账户经验值
+	 * @param experience
+	 * @param id
+	 */
+	public void updateExperienceById(Integer experience,Long id){
+		try{
+			Integer oldExperience = helloWorldDao.getAccountById(id).getExperience();
+			experience += oldExperience;
+			helloMissionDao.updateExperienceById(experience, id);
+		}catch(Exception e){
+			logger.error("HelloMission err ServiceImpl updateExperienceById msg:"+e.getMessage());
+			e.printStackTrace();
+		}
 	}
 	
 }

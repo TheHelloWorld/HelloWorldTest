@@ -36,6 +36,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			}
 		}catch(Exception e){
 			logger.error("HelloWorld err ServiceImple checkUser msg:"+e.getMessage());
+			e.printStackTrace();
 			return "N";
 		}	
 	}
@@ -53,6 +54,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			helloWorldDao.addUser(account);
 		}catch(Exception e){
 			logger.error("HelloWorld err ServiceImple addUser msg:"+e.getMessage());
+			e.printStackTrace();
 		}
 	}
 	
@@ -67,6 +69,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			helloWorldDao.updateStatusById(id);
 		}catch(Exception e){
 			logger.error("HelloWorld err ServiceImple updateStatusById msg:"+e.getMessage());
+			e.printStackTrace();
 		}		
 	}
 	
@@ -81,6 +84,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			helloWorldDao.updateAccountById(account);
 		}catch(Exception e){
 			logger.error("HelloWorld err ServiceImple updateAccountById msg:"+e.getMessage());
+			e.printStackTrace();
 		}		
 	}
 	
@@ -95,6 +99,7 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			}
 		}catch(Exception e){
 			logger.error("HelloWorld err ServiceImple checkEmail msg:"+e.getMessage());
+			e.printStackTrace();
 			return "N";
 		}
 	}
@@ -110,8 +115,9 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		try{
 			Integer num = helloWorldDao.getNumById(id);
 			return num;
-		}catch(Exception e){
+		}catch(Exception e){	
 			logger.error("HelloWorld err ServiceImple getNumById msg:"+e.getMessage());
+			e.printStackTrace();
 			return null;
 		}		
 	}
@@ -127,8 +133,9 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 		try{
 			String str = helloWorldDao.getStatusById(id);
 			return str;
-		}catch(Exception e){
+		}catch(Exception e){	
 			logger.error("HelloWorld err ServiceImple getStatusById msg:"+e.getMessage());
+			e.printStackTrace();
 			return null;
 		}
 	}
@@ -146,8 +153,26 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 			return  str;
 		}catch(Exception e){
 			logger.error("HelloWorld err ServiceImple getStatusByAccount msg:"+e.getMessage());
+			e.printStackTrace();
 			return null;
 		}	
+	}
+	
+	
+	/**
+	 * 根据id获得账户信息
+	 * @param id
+	 * @return
+	 */
+	public Account getAccountById(Long id){
+		try{
+			Account accuont = helloWorldDao.getAccountById(id);
+			return accuont;
+		}catch(Exception e){	
+			logger.error("HelloWorld err  ServiceImpl getAccountById msg:"+e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

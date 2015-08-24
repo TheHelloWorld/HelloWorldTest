@@ -48,4 +48,12 @@ public interface HelloMissionDao {
 	 */
 	public List<Mission> getMessionByOwnerId(Long owner_id);
 	
+	/**
+	 * 修改账户经验值
+	 * @param experience
+	 * @param id
+	 * @return
+	 */
+	public void updateExperienceById(@Param("experience")Integer experience,@Param("id")Long id);
+	
 }
