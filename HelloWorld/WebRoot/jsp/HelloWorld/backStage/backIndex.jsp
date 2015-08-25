@@ -1,9 +1,13 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%> 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <title>HelloWorld</title>
 <head>
 <script type="text/javascript" src="/HelloWorld/JQuery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	
+
+</script>
 </head>
 <body>
 	<div>
@@ -19,10 +23,10 @@
 		</c:if>
 	</div>
 	<div>
-		<c:if test="${listOMission.size() ==0}">
-			您目前还没有任务
+		<c:if test="${listIMission.size() ==0}">
+			目前还没有已接任务
 		</c:if>
-		<c:if test="${listOMission.size() > 0}">
+		<c:if test="${listIMission.size() > 0}">
 			
 		</c:if>
 	</div>

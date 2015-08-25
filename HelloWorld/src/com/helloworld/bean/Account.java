@@ -17,8 +17,12 @@ public class Account {
 	/** 当前经验*/
 	private Integer experience;
 	
-	/** 褰撳墠绛夌骇*/
+	/** 当前等级*/
 	private Integer nowlevel;
+	
+	/** 类别*/
+	private String type;
+	
 
 	public Long getId() {
 		return id;
@@ -66,6 +70,14 @@ public class Account {
 
 	public void setNowlevel(Integer nowlevel) {
 		this.nowlevel = nowlevel;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

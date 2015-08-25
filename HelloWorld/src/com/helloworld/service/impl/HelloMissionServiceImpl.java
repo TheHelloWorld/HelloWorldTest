@@ -110,10 +110,26 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 			List<Mission> list = helloMissionDao.getMessionByOwnerId(owner_id);
 			return list;
 		}catch(Exception e){
-			logger.error("HelloMission err ServiceImple getMessionByOwnerId msg:"+e.getMessage());
+			logger.error("HelloMission err ServiceImpl getMessionByOwnerId msg:"+e.getMessage());
 			e.printStackTrace();
 			return null;
 		}	
+	}
+	
+	
+	/**
+	 * 获得所有已经被接了的任务(status = 'IN')
+	 * @return
+	 */
+	public List<Mission> getAllInMission(){
+		try{
+			List<Mission> list = helloMissionDao.getAllInMission();
+			return list;
+		}catch(Exception e){
+			logger.error("HelloMission err ServiceImpl getAllInMission msg:"+e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 	

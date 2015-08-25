@@ -26,11 +26,15 @@
 	</update>
 	
 	<select id="getAllAvailableMission" resultType="com.helloworld.bean.Mission">
-		select  * from hello_mission where status = 'INIT' and owner_id = 0
+		select * from hello_mission where status = 'INIT' and owner_id = 0
 	</select>
 	
 	<select id="getMessionByOwnerId"  resultType="com.helloworld.bean.Mission" parameterType="Long">
-		select  * from hello_mission where status = 'IN' and owner_id = #{owner_id}
+		select * from hello_mission where status = 'IN' and owner_id = #{owner_id}
+	</select>
+	
+	<select id="getAllInMission" resultType="com.helloworld.bean.Mission" >
+		select * from hello_mission where status = 'IN'
 	</select>
 	
 	<update id="updateExperienceById">

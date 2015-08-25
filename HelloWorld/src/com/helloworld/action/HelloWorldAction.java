@@ -40,8 +40,7 @@ public class HelloWorldAction {
 	  * @return
 	  */
 	 @RequestMapping(value = "index")
-	 public String index(){ 
-		 
+	 public String index(){	 
 		 return "index";
 	 }
 	 
@@ -54,11 +53,16 @@ public class HelloWorldAction {
 	  */
 	 @RequestMapping(value = "userIndex")
 	 public String goIndex(Long id,Model model){ 
-		 Account account = helloWorldService.getAccountById(id);
+		 Account account = helloWorldService.getAccountById(id);	
 		 List<Mission> listAMission = helloMissionService.getAllAvailableMission();
-		 List<Mission> listOMission = helloMissionService.getMessionByOwnerId(id);
 		 model.addAttribute("account",account);
 		 model.addAttribute("listAMission",listAMission);
+		 if(account.getType().equals("NORMAL")){
+			 List<Mission> listIMission = helloMissionService.getAllInMission();
+			 model.addAttribute("listIMission",listIMission);
+			 return "backStageManagement";
+		 }
+		 List<Mission> listOMission = helloMissionService.getMessionByOwnerId(id);		 
 		 model.addAttribute("listOMission",listOMission);
 		 return "userIndex";
 	 }

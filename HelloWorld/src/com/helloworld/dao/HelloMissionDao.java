@@ -49,6 +49,12 @@ public interface HelloMissionDao {
 	public List<Mission> getMessionByOwnerId(Long owner_id);
 	
 	/**
+	 * 获得所有已经被接了的任务(status = 'IN')
+	 * @return
+	 */
+	public List<Mission> getAllInMission();
+	
+	/**
 	 * 获得任务经验
 	 * @param experience
 	 * @param id

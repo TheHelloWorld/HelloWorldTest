@@ -8,7 +8,7 @@
 	
 	<insert id="addUser" parameterType="com.helloworld.bean.Account" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
-			insert into hello_account(username,password,status) values(#{username},#{password},'FALSE')
+			insert into hello_account(username,password,status,type) values(#{username},#{password},'FALSE','NORMAL')
 		]]>
 	</insert>
 	

@@ -43,6 +43,12 @@ public interface HelloMissionService {
 	public List<Mission> getAllAvailableMission();
 	
 	/**
+	 * 获得所有已经被接了的任务(status = 'IN')
+	 * @return
+	 */
+	public List<Mission> getAllInMission();
+	
+	/**
 	 * 根据用户id获得所有以接任务
 	 * @param owner_id
 	 * @return
