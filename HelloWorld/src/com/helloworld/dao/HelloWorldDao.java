@@ -21,7 +21,7 @@ public interface HelloWorldDao
 	 * @param password
 	 * @return
 	 */
-	public Integer checkUser(@Param("username")String username,@Param("password")String password);
+	public Long checkUser(@Param("username")String username,@Param("password")String password);
     
 	/**
 	 * 添加用户

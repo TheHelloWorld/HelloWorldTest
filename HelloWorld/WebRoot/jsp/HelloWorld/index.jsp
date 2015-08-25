@@ -14,8 +14,8 @@
 				password:$("#password").val()
 			},
 			success:function(data){
-				if(data == "Y"){
-					window.url.href="/HelloWorld/index.do";
+				if(data != "N"){
+					window.location.href="/HelloWorld/userIndex.do?id="+data;
 				}else{
 					$("#password").val("");
 					alert("用户名或密码错误");

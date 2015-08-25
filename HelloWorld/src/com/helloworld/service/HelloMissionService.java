@@ -11,48 +11,49 @@ import com.helloworld.bean.Mission;
 public interface HelloMissionService {
 	
 	/**
-	 * Ìí¼ÓÈÎÎñ
+	 * å‘å¸ƒä»»åŠ¡
 	 * @param mission
 	 */
 	public void addMission(Mission mission);
 		
 	/**
-	 * ½ÓÊÜÈÎÎñ
+	 * æ¥ä»»åŠ¡
 	 * @param owner_id
 	 * @param id
 	 */
 	public void updateMissionOwnerById(Long owner_id,Long id);
 	
 	/**
-	 * ĞŞ¸ÄÈÎÎñ
+	 * ä¿®æ”¹ä»»åŠ¡
 	 * @param mission
 	 */
 	public void updateMissionById(Mission mission);
 	
 	/**
-	 * ¸ù¾İidĞŞ¸ÄÈÎÎñ×´Ì¬
+	 * ä¿®æ”¹ä»»åŠ¡çŠ¶æ€Ì¬
 	 * @param status
 	 * @param id
 	 */
 	public void updateMissionStatusById(String status,Long id);
 	
 	/**
-	 * »ñµÃËùÓĞ¿ÉÓÃÈÎÎñ
+	 * è·å¾—æ‰€æœ‰æœªæ¥ä»»åŠ¡
 	 * @return
 	 */
-	public List<Mission> getAlLAvailableMission();
+	public List<Mission> getAllAvailableMission();
 	
 	/**
-	 * ¸ù¾İowner_id»ñµÃËùÓĞ¸ÃÕË»§ÏÂÈÎÎñ
+	 * æ ¹æ®ç”¨æˆ·idè·å¾—æ‰€æœ‰ä»¥æ¥ä»»åŠ¡
 	 * @param owner_id
 	 * @return
 	 */
 	public List<Mission> getMessionByOwnerId(Long owner_id);
 	
 	/**
-	 * ¸ù¾İidĞŞ¸ÄÕË»§¾­ÑéÖµ
+	 * è·å¾—ä»»åŠ¡ç»éªŒ
 	 * @param experience
 	 * @param id
+	 * @return
 	 */
 	public void updateExperienceById(Integer experience,Long id);
 	

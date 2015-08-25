@@ -8,28 +8,28 @@ import com.helloworld.bean.Friend;
 public interface HelloFriendService {
 	
 	/**
-	 * 添加好友
+	 * 娣诲姞濂藉弸
 	 * @param friend
 	 */
 	public void addFriendRequest(Friend friend);
 	
 	
 	/**
-	 * 删除好友
+	 * 鍒犻櫎濂藉弸
 	 * @param userid
 	 * @param friendid
 	 */
 	public void removeFriendByIds(Long userid,Long friendid);
 	
 	/**
-	 * 拉黑好友
+	 * 鎷夐粦濂藉弸
 	 * @param userid
 	 * @param friendid
 	 */
 	public void updateFriendInBlack(Long userid,Long friendid);
 	
 	/**
-	 * 根据id获得好友列表
+	 * 鏍规嵁鐢ㄦ埛id鑾峰緱濂藉弸
 	 * @param userid
 	 * @return
 	 */

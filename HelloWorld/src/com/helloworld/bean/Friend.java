@@ -5,22 +5,22 @@ public class Friend {
 	/** id*/
 	private Long id;
 	
-	/** ´´½¨Ê±¼ä*/
+	/** åˆ›å»ºæ—¶é—´*/
 	private String create_time;
 	
-	/** ±¾ÈËÃû³Æ*/
+	/** ç”¨æˆ·å*/
 	private String username;
 	
-	/** ºÃÓÑÃû³Æ*/
+	/** å¥½æœ‰åç§°*/
 	private String friendname;
 	
-	/** ±¾ÈËid*/
+	/** ç”¨æˆ·id*/
 	private Long userid;
 	
-	/** ºÃÓÑid*/
+	/** å¥½å‹id*/
 	private Long friendid;
 	
-	/** ºÃÓÑ×´Ì¬*/
+	/** çŠ¶æ€Ì¬*/
 	private String status;
 
 	public Long getId() {

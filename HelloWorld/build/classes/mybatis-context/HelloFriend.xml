@@ -16,7 +16,7 @@
 		update hello_friend set status = 'BLACK' where userid = #{userid} and firendid = #{friendid}
 	</update>
 	
-	<select id="getFriendById" parameterType="Long" resultType="com.helloworld.bean.friend">
+	<select id="getFriendById" parameterType="Long" resultType="com.helloworld.bean.Friend">
 		select  * from hello_friend where userid = #{userid} and status != "BLACK"
 	</select>
 	

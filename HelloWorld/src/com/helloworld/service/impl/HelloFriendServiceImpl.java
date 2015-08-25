@@ -20,7 +20,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
     private HelloFriendDao helloFriendDao;
 	
 	/**
-	 * 添加好友
+	 * 娣诲姞濂藉弸
 	 * @param friend
 	 */
 	@Override
@@ -35,7 +35,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 	
 	
 	/**
-	 * 删除好友
+	 * 鍒犻櫎濂藉弸
 	 * @param userid
 	 * @param friendid
 	 */
@@ -53,7 +53,7 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 	
 	
 	/**
-	 * 拉黑好友
+	 * 鎷夐粦濂藉弸
 	 * @param userid
 	 * @param friendid
 	 */
@@ -70,7 +70,9 @@ public class HelloFriendServiceImpl implements HelloFriendService{
 	
 	
 	/**
-	 * 根据id获得好友列表
+	 * 鏍规嵁鐢ㄦ埛id鑾峰緱濂藉弸
+	 * @param userid
+	 * @return
 	 */
 	@Override
 	public List<Friend> getFriendById(Long userid){

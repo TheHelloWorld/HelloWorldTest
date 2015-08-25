@@ -2,22 +2,22 @@ package com.helloworld.bean;
 
 public class Account {
 	
-	/** 账户id*/
+	/** 主键id*/
 	private Long id;
 	
-	/** 账户名*/
+	/** 用户名*/
 	private String username;
 	
-	/** 账户密码*/
+	/** 密码*/
 	private String password;
 	
-	/** 账户状态*/
+	/** 状态*/
 	private String status;
 	
-	/** 经验值*/
+	/** 当前经验*/
 	private Integer experience;
 	
-	/** 当前等级*/
+	/** 褰撳墠绛夌骇*/
 	private Integer nowlevel;
 
 	public Long getId() {

@@ -26,7 +26,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	
 
 	/**
-	 * Ìí¼ÓÈÎÎñ
+	 * å‘å¸ƒä»»åŠ¡
 	 * @param mission
 	 */
 	public void addMission(Mission mission){
@@ -40,7 +40,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	
 	
 	/**
-	 * ½ÓÊÜÈÎÎñ
+	 * æ¥ä»»åŠ¡
 	 * @param owner_id
 	 * @param id
 	 */
@@ -55,7 +55,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	
 	
 	/**
-	 * ĞŞ¸ÄÈÎÎñ
+	 * ä¿®æ”¹ä»»åŠ¡
 	 * @param mission
 	 */
 	public void updateMissionById(Mission mission){
@@ -69,7 +69,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	
 	
 	/**
-	 * ¸ù¾İidĞŞ¸ÄÈÎÎñ×´Ì¬
+	 * ä¿®æ”¹ä»»åŠ¡çŠ¶æ€Ì¬
 	 * @param status
 	 * @param id
 	 */
@@ -84,12 +84,12 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	
 	
 	/**
-	 * »ñµÃËùÓĞ¿ÉÓÃÈÎÎñ
+	 * è·å¾—æ‰€æœ‰æœªæ¥ä»»åŠ¡
 	 * @return
 	 */
-	public List<Mission> getAlLAvailableMission(){
+	public List<Mission> getAllAvailableMission(){
 		try{
-			List<Mission> list = helloMissionDao.getAlLAvailableMission();
+			List<Mission> list = helloMissionDao.getAllAvailableMission();
 			return list;
 		}catch(Exception e){
 			logger.error("HelloMission err ServiceImple getAlLAvailableMission msg:"+e.getMessage());
@@ -101,7 +101,7 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	
 	
 	/**
-	 * ¸ù¾İowner_id»ñµÃËùÓĞ¸ÃÕË»§ÏÂÈÎÎñ
+	 * æ ¹æ®ç”¨æˆ·idè·å¾—æ‰€æœ‰ä»¥æ¥ä»»åŠ¡
 	 * @param owner_id
 	 * @return
 	 */
@@ -118,9 +118,10 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 	
 	
 	/**
-	 * ¸ù¾İidĞŞ¸ÄÕË»§¾­ÑéÖµ
+	 * è·å¾—ä»»åŠ¡ç»éªŒ
 	 * @param experience
 	 * @param id
+	 * @return
 	 */
 	public void updateExperienceById(Integer experience,Long id){
 		try{

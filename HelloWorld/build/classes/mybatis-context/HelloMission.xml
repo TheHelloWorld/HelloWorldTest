@@ -25,7 +25,7 @@
 		update hello_mission set status = #{status} where id = #{id}
 	</update>
 	
-	<select id="getAlLAvailableMission" resultType="com.helloworld.bean.Mission">
+	<select id="getAllAvailableMission" resultType="com.helloworld.bean.Mission">
 		select  * from hello_mission where status = 'INIT' and owner_id = 0
 	</select>
 	

@@ -10,7 +10,7 @@ public interface HelloWorldService {
 	 * @param password
 	 * @return
 	 */
-	public String checkUser(String username,String password);
+	public Long checkUser(String username,String password);
 	
 	/**
 	 * 查询当前email是否重复

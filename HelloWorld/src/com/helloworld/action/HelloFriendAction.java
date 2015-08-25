@@ -22,7 +22,7 @@ public class HelloFriendAction {
 	private HelloFriendService helloFriendService;
 	
 	/**
-	 * 添加好友
+	 * 娣诲姞濂藉弸
 	 * @return
 	 */
 	@ResponseBody
@@ -45,7 +45,7 @@ public class HelloFriendAction {
 	
 	
 	/**
-	 * 删除好友
+	 * 鍒犻櫎濂藉弸
 	 * @return
 	 */
 	@ResponseBody
@@ -63,7 +63,7 @@ public class HelloFriendAction {
 	
 	
 	/**
-	 * 拉黑好友
+	 * 鎷夐粦濂藉弸
 	 * @return
 	 */
 	@ResponseBody
@@ -81,7 +81,7 @@ public class HelloFriendAction {
 	
 	
 	/**
-	 * 根据id获得好友列表
+	 * 鏍规嵁鐢ㄦ埛id鑾峰緱濂藉弸
 	 * @return
 	 */
 	@RequestMapping(value = "getFirends")

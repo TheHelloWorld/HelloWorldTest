@@ -25,19 +25,19 @@ public class HelloWorldServiceImpl implements HelloWorldService{
 	 * @return
 	 */
 	@Override
-	public String checkUser(String username,String password){
+	public Long checkUser(String username,String password){
 		try{
 			password = MD5Util.GetMD5Code(password);
-			int count = helloWorldDao.checkUser(username,password);
-			if(count>0){
-				return  "Y";
+			Long id = helloWorldDao.checkUser(username,password);
+			if(id != null){
+				return  id;
 			}else{
-				return  "N";
+				return  null;
 			}
 		}catch(Exception e){
 			logger.error("HelloWorld err ServiceImple checkUser msg:"+e.getMessage());
 			e.printStackTrace();
-			return "N";
+			return null;
 		}	
 	}
 	

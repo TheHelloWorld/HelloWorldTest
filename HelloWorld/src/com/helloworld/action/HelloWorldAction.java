@@ -1,6 +1,7 @@
 package com.helloworld.action;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 import javax.annotation.Resource;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.helloworld.bean.Account;
+import com.helloworld.bean.Mission;
+import com.helloworld.service.HelloMissionService;
 import com.helloworld.service.HelloWorldService;
 import com.helloworld.util.MailUtil;
 
@@ -25,23 +28,44 @@ public class HelloWorldAction {
 	
 	@Resource
     private HelloWorldService helloWorldService;
+	
+	@Resource
+    private HelloMissionService helloMissionService;
 	 
-	 /**
-	  * 跳转到主页
+	
+	/**
+	  * 主页
 	  * @param username
 	  * @param password
 	  * @return
 	  */
 	 @RequestMapping(value = "index")
+	 public String index(){ 
+		 
+		 return "index";
+	 }
+	 
+	
+	 /**
+	  * 跳转到用户主页
+	  * @param username
+	  * @param password
+	  * @return
+	  */
+	 @RequestMapping(value = "userIndex")
 	 public String goIndex(Long id,Model model){ 
 		 Account account = helloWorldService.getAccountById(id);
+		 List<Mission> listAMission = helloMissionService.getAllAvailableMission();
+		 List<Mission> listOMission = helloMissionService.getMessionByOwnerId(id);
 		 model.addAttribute("account",account);
-		 return "index";
+		 model.addAttribute("listAMission",listAMission);
+		 model.addAttribute("listOMission",listOMission);
+		 return "userIndex";
 	 }
 	 
 	 
 	 /**
-	  * 检查用户名密码是否正确
+	  * 检查用户名密码
 	  * @param username
 	  * @param password
 	  * @return
@@ -49,12 +73,18 @@ public class HelloWorldAction {
 	 @ResponseBody
 	 @RequestMapping(value = "checkUser")
 	 public String checkUser(String username,String password){
-		return helloWorldService.checkUser(username,password);
+		 Long id = helloWorldService.checkUser(username,password);
+		 if(id == null){
+			 return "N";
+		 }else{
+			 return String.valueOf(id);
+		 }
+		
 	 }
 	 
 	 
 	 /**
-	  * 检查Email是否被占用
+	  * 邮件激活
 	  * @param email
 	  * @return
 	  */
@@ -66,7 +96,7 @@ public class HelloWorldAction {
 	 
 	 
 	 /**
-	  * 添加用户
+	  * 注册
 	  * @param username
 	  * @param password
 	  * @return
@@ -80,7 +110,7 @@ public class HelloWorldAction {
 			account.setPassword(password);
 			helloWorldService.addUser(account);
 			MailUtil mail = new MailUtil();
-			mail.sendOne(username, "激活您的账号", "请点击下面链接激活您的账号<a href='localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"'>激活链接</a><br/>如果链接不能点击请复制以下链接到您的浏览器地址栏：localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"");
+			mail.sendOne(username, "激活邮件", "请点击以下链接<a href='localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"'>激活</a><br/>如果不能点击请复制链接到地址栏localhost:8080/GitTest/updateStatusById.do?id="+account.getId()+"");
 			return  "Y";
 		}catch(Exception e){
 			logger.error("HelloWorld err Action addAccount msg:"+e.getMessage());
@@ -91,7 +121,7 @@ public class HelloWorldAction {
 	 
 	 
 	 /**
-	  * 激活账户
+	  * 将账户状态置为激活
 	  * @param id
 	  * @return
 	  */
@@ -122,7 +152,7 @@ public class HelloWorldAction {
 	 
 	 
 	 /**
-	  * 检查HelloWorld Demo
+	  * 检查用户名密码
 	  * @param str
 	  * @return
 	  */
@@ -144,5 +174,6 @@ public class HelloWorldAction {
 	    	return "error:"+e.getMessage();
 	    }
 	}
- 	
+	 
+	
 }

@@ -10,28 +10,28 @@ import com.helloworld.bean.Friend;
 public interface HelloFriendDao {
 	
 	/**
-	 * 添加好友
+	 * 娣诲姞濂藉弸
 	 * @param friend
 	 */
 	public void addFriendRequest(Friend friend);
 	
 	
 	/**
-	 * 删除好友
+	 * 鍒犻櫎濂藉弸
 	 * @param userid
 	 * @param friendid
 	 */
 	public void removeFriendByIds(@Param("userid")Long userid,@Param("friendid")Long friendid);
 	
 	/**
-	 * 拉黑好友
+	 * 鎷夐粦濂藉弸
 	 * @param userid
 	 * @param friendid
 	 */
 	public void updateFriendInBlack(@Param("userid")Long userid,@Param("friendid")Long friendid);
 	
 	/**
-	 * 根据id获得好友名单
+	 * 鏍规嵁鐢ㄦ埛id鑾峰緱濂藉弸
 	 * @param userid
 	 * @return
 	 */

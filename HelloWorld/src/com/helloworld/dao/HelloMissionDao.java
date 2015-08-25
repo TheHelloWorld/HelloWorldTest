@@ -10,46 +10,46 @@ import com.helloworld.bean.Mission;
 public interface HelloMissionDao {
 	
 	/**
-	 * Ìí¼ÓÈÎÎñ
+	 * å‘å¸ƒä»»åŠ¡
 	 * @param mission
 	 */
 	public void addMission(Mission mission);
 	
 	/**
-	 * ĞŞ¸ÄÈÎÎñ
+	 * ä¿®æ”¹ä»»åŠ¡
 	 * @param mission
 	 */
 	public void updateMissionById(Mission mission);
 		
 	/**
-	 * ½ÓÊÜÈÎÎñ
+	 * æ¥ä»»åŠ¡
 	 * @param owner_id
 	 * @param id
 	 */
 	public void updateMissionOwnerById(@Param("owner_id")Long owner_id,@Param("id")Long id);
 	
 	/**
-	 * ¸ù¾İidĞŞ¸ÄÈÎÎñ×´Ì¬
+	 * ä¿®æ”¹ä»»åŠ¡çŠ¶æ€Ì¬
 	 * @param status
 	 * @param id
 	 */
 	public void updateMissionStatusById(@Param("status")String status,@Param("id")Long id);
 	
 	/**
-	 * »ñµÃËùÓĞ¿ÉÓÃÈÎÎñ
+	 * è·å¾—æ‰€æœ‰æœªæ¥ä»»åŠ¡
 	 * @return
 	 */
-	public List<Mission> getAlLAvailableMission();
+	public List<Mission> getAllAvailableMission();
 	
 	/**
-	 * ¸ù¾İowner_id»ñµÃËùÓĞ¸ÃÕË»§ÏÂÈÎÎñ
+	 * æ ¹æ®ç”¨æˆ·idè·å¾—æ‰€æœ‰ä»¥æ¥ä»»åŠ¡
 	 * @param owner_id
 	 * @return
 	 */
 	public List<Mission> getMessionByOwnerId(Long owner_id);
 	
 	/**
-	 * ĞŞ¸ÄÕË»§¾­ÑéÖµ
+	 * è·å¾—ä»»åŠ¡ç»éªŒ
 	 * @param experience
 	 * @param id
 	 * @return
