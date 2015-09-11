@@ -57,7 +57,7 @@ public class HelloWorldAction {
 		 List<Mission> listAMission = helloMissionService.getAllAvailableMission();
 		 model.addAttribute("account",account);
 		 model.addAttribute("listAMission",listAMission);
-		 if(account.getType().equals("NORMAL")){
+		 if(!account.getType().equals("NORMAL")){
 			 List<Mission> listIMission = helloMissionService.getAllInMission();
 			 model.addAttribute("listIMission",listIMission);
 			 return "backStageManagement";

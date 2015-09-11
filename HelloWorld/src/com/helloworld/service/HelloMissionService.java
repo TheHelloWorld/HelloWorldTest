@@ -63,4 +63,11 @@ public interface HelloMissionService {
 	 */
 	public void updateExperienceById(Integer experience,Long id);
 	
+	/**
+	 * 根据id获得Mission数据
+	 * @param id
+	 * @return
+	 */
+	public Mission getMissionById(Long id);
+	
 }

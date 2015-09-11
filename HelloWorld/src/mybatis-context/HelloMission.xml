@@ -41,4 +41,8 @@
 		update hello_account set experience = #{experience} where id = #{id}
 	</update>
 	
+	<select id="getMissionById" resultType="com.helloworld.bean.Mission" parameterType="Long">
+		select * from hello_mission where id = #{id}
+	</select>
+	
 </mapper>

@@ -150,4 +150,21 @@ public class HelloMissionServiceImpl implements HelloMissionService{
 		}
 	}
 	
+	/**
+	 * 根据id获得Mission数据
+	 * @param id
+	 * @return
+	 */
+	@Override
+	public Mission getMissionById(Long id){
+		try{
+			Mission mission = helloMissionDao.getMissionById(id);
+			return mission;
+		}catch(Exception e){
+			logger.error("HelloMission err ServiceImpl getMissionById msg:"+e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 }

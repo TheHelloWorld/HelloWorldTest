@@ -1,15 +1,21 @@
 package com.helloworld.action;
 
+
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import com.helloworld.bean.Mission;
 import com.helloworld.service.HelloMissionService;
+import com.helloworld.service.HelloWorldService;
 
 
 
@@ -20,20 +26,55 @@ public class HelloMissionAction {
 	
 	@Resource
     private HelloMissionService helloMissionService;
-	 
+	
+	@Resource
+    private HelloWorldService helloWorldService;
+	
 	
 	/**
 	 * 添加任务
 	 * @param mission
 	 */
-	@RequestMapping(value = "addMission")
-	public void addMission(Mission mission){
+	@RequestMapping(value = "toAddMission")
+	public String toAddMission(Long id,Model model){
 		try{
-			helloMissionService.addMission(mission);
+			model.addAttribute("id", id);
+			return "addMissionPage";
 		}catch(Exception e){
 			logger.error("HelloMission err Action addMission msg:"+e.getMessage());
 			e.printStackTrace();
+			return "500";
 		}	
+	}
+	
+	/**
+	 * 添加任务
+	 * @param mission
+	 */
+	@ResponseBody
+	@RequestMapping(value = "addMission")
+	public String addMission(Mission mission){
+		try{		
+			helloMissionService.addMission(mission);				
+			return "Y";
+		}catch(Exception e){
+			logger.error("HelloMission err Action addMission msg:"+e.getMessage());
+			e.printStackTrace();
+			return "N";
+		}	
+	}
+	
+	@RequestMapping(value = "toUpdateMission")
+	public String toUpdateMission(Long id,Model model){
+		try{
+			Mission mission = helloMissionService.getMissionById(id);
+			model.addAttribute("model", mission);
+			return "updateMission";
+		}catch(Exception e){
+			logger.error("HelloMission err Action toUpdateMission msg:"+e.getMessage());
+			e.printStackTrace();
+			return "500";
+		}
 	}
 	
 	
@@ -42,8 +83,9 @@ public class HelloMissionAction {
 	 * @param owner_id
 	 * @param id
 	 */
+	
 	@RequestMapping(value = "updateMissionOwnerById")
-	public void updateMissionOwnerById(Long owner_id,Long id){
+	public void updateMissionOwnerBydId(Long owner_id,Long id){
 		try{
 			helloMissionService.updateMissionOwnerById(owner_id, id);
 		}catch(Exception e){
@@ -53,17 +95,22 @@ public class HelloMissionAction {
 	}
 	
 	
+	
 	/**
 	 * 修改任务
 	 * @param mission
 	 */
-	@RequestMapping(value = "updateMissionById")
-	public void updateMissionById(Mission mission){
+	@RequestMapping(value = "updateMission")
+	public String updateMissionById(Mission mission,Model model){
 		try{
 			helloMissionService.updateMissionById(mission);
+			List<Mission> listIMission = helloMissionService.getAllInMission();
+			model.addAttribute("listIMission",listIMission);
+			return "backStageManagement";
 		}catch(Exception e){
 			logger.error("HelloMission err Action updateMissionById msg:"+e.getMessage());
 			e.printStackTrace();
+			return "500";
 		}		
 	}
 	

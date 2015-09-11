@@ -62,4 +62,11 @@ public interface HelloMissionDao {
 	 */
 	public void updateExperienceById(@Param("experience")Integer experience,@Param("id")Long id);
 	
+	/**
+	 * 根据id获得Mission记录
+	 * @param id
+	 * @return
+	 */
+	public Mission getMissionById(Long id);
+	
 }
