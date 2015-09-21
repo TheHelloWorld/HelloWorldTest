@@ -25,8 +25,6 @@
 		});
 		
 	}
-
-
 </script>
 </head>
 <body>
@@ -36,5 +34,4 @@
 		<input type="button" onclick="userLogin()" value="提交">
 		<a href="/HelloWorld/jsp/HelloWorld/register/checkHelloWorld.jsp">注册</a>
 	</div>
-
 </body>

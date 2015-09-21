@@ -5,16 +5,16 @@
 // default settins - this structure can be moved in separate file in multilangual applications
 var A_TCALCONF = {
 	'cssprefix'  : 'tcal',
-	'months'     : ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-	'weekdays'   : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-	'longwdays'  : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+	'months'     : ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+	'weekdays'   : ['日', '一', '二', '三', '四', '五', '六'],
+	'longwdays'  : ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
 	'yearscroll' : true, // show year scroller
 	'weekstart'  : 0, // first day of week: 0-Su or 1-Mo
 	'prevyear'   : 'Previous Year',
 	'nextyear'   : 'Next Year',
 	'prevmonth'  : 'Previous Month',
 	'nextmonth'  : 'Next Month',
-	'format'     : 'm/d/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+	'format'     : 'Y-m-d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
 };
 
 var A_TCALTOKENS = [
@@ -309,10 +309,9 @@ function f_getPosition (e_elemRef, s_coord) {
 }
 
 function f_tcalInit () {
-	
-	if (!document.getElementsByTagName)
+	if (!document.getElementsByTagName){
 		return;
-
+	}
 	var e_input, a_inputs = f_tcalGetInputs();
 	for (var n = 0; n < a_inputs.length; n++) {
 		e_input = a_inputs[n];
@@ -321,8 +320,10 @@ function f_tcalInit () {
 	}
 	
 	window.A_TCALTOKENS_IDX = {};
-	for (n = 0; n < A_TCALTOKENS.length; n++)
+	for (n = 0; n < A_TCALTOKENS.length; n++){
 		A_TCALTOKENS_IDX[A_TCALTOKENS[n]['t']] = A_TCALTOKENS[n];
+	}
+		
 }
 
 function f_tcalAddOnload (f_func) {

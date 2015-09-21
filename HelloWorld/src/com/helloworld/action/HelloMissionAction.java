@@ -64,6 +64,12 @@ public class HelloMissionAction {
 		}	
 	}
 	
+	/**
+	 * 跳转到修改任务页面
+	 * @param id
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "toUpdateMission")
 	public String toUpdateMission(Long id,Model model){
 		try{

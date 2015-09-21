@@ -1,7 +1,7 @@
 package com.helloworld.bean;
 
 public class Level {
-	
+
 	/** id*/
 	private Long id;
 	

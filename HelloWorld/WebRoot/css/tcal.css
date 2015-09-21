@@ -17,7 +17,7 @@
 
 /* additional properties for input boxe in activated state, above still applies unless in conflict */
 .tcalActive {
-	background-image: url('img/no_cal.gif');
+	background-image: url('/HelloWorld/image/no_cal.gif');
 }
 /* container of calendar's pop-up */
 #tcal {
@@ -63,10 +63,10 @@
 	font-weight: bold;
 	white-space: nowrap;
 }
-#tcalPrevYear { background-image: url('img/prev_year.gif'); }
-#tcalPrevMonth { background-image: url('img/prev_mon.gif'); }
-#tcalNextMonth { background-image: url('img/next_mon.gif'); }
-#tcalNextYear { background-image: url('img/next_year.gif'); }
+#tcalPrevYear { background-image: url('/HelloWorld/image/prev_year.gif'); }
+#tcalPrevMonth { background-image: url('/HelloWorld/image/prev_mon.gif'); }
+#tcalNextMonth { background-image: url('/HelloWorld/image/next_mon.gif'); }
+#tcalNextYear { background-image: url('/HelloWorld/image/next_year.gif'); }
 
 /* table containing week days header and calendar grid */
 #tcalGrid {

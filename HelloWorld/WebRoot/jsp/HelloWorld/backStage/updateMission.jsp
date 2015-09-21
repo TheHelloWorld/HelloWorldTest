@@ -3,7 +3,10 @@
 <html>
 <title>HelloWorld</title>
 <head>
+<link rel="stylesheet" type="text/css" href="/HelloWorld/css/tcal.css" />
 <script type="text/javascript" src="/HelloWorld/JQuery/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/HelloWorld/JQuery/tcal.js"></script> 
+
 <script type="text/javascript">
 	var flag = true;
 	function changeNum(){
@@ -37,6 +40,8 @@
 			flag = true;
 		}
 	}
+	
+	
 </script>
 </head>
 <body>
@@ -55,9 +60,10 @@
 				</select>
 			</p>
 			<p>人数：<input type="text" id="num" name="num" value="${model.num}" /></p>
-			<p>完成时间：<input type="text" id="dead_line" name="dead_line" value="${model.dead_line}" /></p>
+			<p>完成时间：<input type="text" id="dead_line" name="dead_line" class="tcal" value="${model.dead_line}" /></p>
 			<input type="button" value="提交" onclick="sub()" />
 			<input type="reset" value="重置"/>
+			<input type="button" value="返回" onclick="goBack()"/>
 		</form>
 	</div>
 </body>

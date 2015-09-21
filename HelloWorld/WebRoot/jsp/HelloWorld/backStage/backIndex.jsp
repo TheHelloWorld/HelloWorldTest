@@ -11,6 +11,10 @@
 	function updateThis(id){
 		window.location.href="/HelloWorld/toUpdateMission.do?id="+id;
 	}
+	
+	function addMission(id){
+		window.location.href="/HelloWorld/toAddMission.do?id="+id;
+	}
 
 </script>
 </head>
@@ -20,7 +24,7 @@
 		<p>等级：<span id="nowlevel">${account.nowlevel}</span>&nbsp;&nbsp;经验：<span id="experience">${account.experience}</span></p>
 	</div>
 	<div>
-		<div><input type="button" value="添加任务" onclick="addMission()"></div>
+		<div><input type="button" value="添加任务" onclick="addMission(${account.id})"></div>
 		<c:if test="${listAMission.size() ==0}">
 			目前还没有任务
 		</c:if>

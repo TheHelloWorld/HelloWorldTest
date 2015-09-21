@@ -47,7 +47,11 @@
 			url:"/HelloWorld/addMission.do",
 			data:{
 				content:$("#content").val(),
-				experience:$("#experience").val()
+				experience:$("#experience").val(),
+				publisher_id:$("#publisher_id").val(),
+				type:$("#type").val(),
+				num:$("#num").val(),
+				dead_line:$("#dead_line").val()
 			},
 			type:"POST",
 			success:function(data){
@@ -57,13 +61,17 @@
 			}
 		});
 	}
+	
+	function goBack(){
+		window.location.href="/HelloWorld/userIndex.do?id="+$("#publisher_id").val();
+	}
 
 </script>
 </head>
 <body>
 	<div>
 		<form id="form1" action ="" method="POST">
-			<input type="hidden" name="publisher_id" value="${id}"/>
+			<input type="hidden" id="publisher_id" name="publisher_id" value="${id}"/>
 			<p>内容：<input type="text" id="content" name="content"></p>
 			<p>经验值：<input type="text" id="experience" name="experience"></p>
 			<p>
@@ -75,9 +83,10 @@
 				</select>
 			</p>
 			<p>人数：<input type="text" id="num" name="num"></p>
-			<p>完成时间：<input type="text" id="dead_line" onclick="f_tcalInit()" name="dead_line"></p>
+			<p>完成时间：<input type="text" id="dead_line" class="tcal" name="dead_line"></p>
 			<input type="button" value="提交" onclick="sub()" />
 			<input type="reset" value="重置" id="rst"/>
+			<input type="button" value="返回" onclick="goBack()"/>
 		</form>
 	</div>
 </body>
