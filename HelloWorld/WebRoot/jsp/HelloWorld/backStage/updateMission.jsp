@@ -46,7 +46,8 @@
 </head>
 <body>
 	<div>
-		<form id="form1" action ="/HelloWorld/updateMission.do" method="POST">			
+		<form id="form1" action ="/HelloWorld/updateMission.do" method="POST">
+			<input type="hidden" name="publisher_id" value="${model.publisher_id}">		
 			<input type="hidden" name="id" value="${model.id}"/>
 			<input type="hidden" name="returnType" value="${model.type}"/>
 			<p>内容：<input type="text" id="content" name="content" value="${model.content}"></p>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
+import com.helloworld.bean.Account;
 import com.helloworld.bean.Mission;
 import com.helloworld.service.HelloMissionService;
 import com.helloworld.service.HelloWorldService;
@@ -110,6 +111,10 @@ public class HelloMissionAction {
 	public String updateMissionById(Mission mission,Model model){
 		try{
 			helloMissionService.updateMissionById(mission);
+			Account account = helloWorldService.getAccountById(mission.getPublisher_id());	
+			List<Mission> listAMission = helloMissionService.getAllAvailableMission();
+			model.addAttribute("account",account);
+			model.addAttribute("listAMission",listAMission);
 			List<Mission> listIMission = helloMissionService.getAllInMission();
 			model.addAttribute("listIMission",listIMission);
 			return "backStageManagement";

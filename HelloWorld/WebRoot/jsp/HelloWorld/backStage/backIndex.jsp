@@ -28,7 +28,6 @@
 		<c:if test="${listAMission.size() ==0}">
 			目前还没有任务
 		</c:if>
-		<p>${listAMission.size()}</p>
 		<c:if test="${listAMission.size() > 0}">
 			<c:forEach var="index" items="${listAMission}" varStatus="mission">
 				<p>
