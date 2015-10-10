@@ -9,13 +9,18 @@
 
 <script type="text/javascript">
 	var flag = true;
+	
+	$(function(){
+		changeNum();
+	});	
+	
 	function changeNum(){
 		if($("#type").val() == "personal"){
+			$("#realnum").hide();
 			$("#num").val(1);
-			$("#num").attr("disabled",true);
 		}else{
-			$("#num").val(2);
-			$("#num").attr("disabled",false);
+			$("#num").val("");
+			$("#realnum").show();
 		}
 	}
 	
@@ -41,13 +46,16 @@
 		}
 	}
 	
-	
+	function goBack(){
+		window.location.href="/HelloWorld/userIndex.do?id="+$("#publisher_id").val();
+	}
+		
 </script>
 </head>
 <body>
 	<div>
 		<form id="form1" action ="/HelloWorld/updateMission.do" method="POST">
-			<input type="hidden" name="publisher_id" value="${model.publisher_id}">		
+			<input type="hidden" id="publisher_id" name="publisher_id" value="${model.publisher_id}">		
 			<input type="hidden" name="id" value="${model.id}"/>
 			<input type="hidden" name="returnType" value="${model.type}"/>
 			<p>内容：<input type="text" id="content" name="content" value="${model.content}"></p>
@@ -60,7 +68,7 @@
 					<option value="pog">小组或个人</option>
 				</select>
 			</p>
-			<p>人数：<input type="text" id="num" name="num" value="${model.num}" /></p>
+			<p id="realnum">人数：<input type="text" id="num" name="num" value="${model.num}" /></p>
 			<p>完成时间：<input type="text" id="dead_line" name="dead_line" class="tcal" value="${model.dead_line}" /></p>
 			<input type="button" value="提交" onclick="sub()" />
 			<input type="reset" value="重置"/>

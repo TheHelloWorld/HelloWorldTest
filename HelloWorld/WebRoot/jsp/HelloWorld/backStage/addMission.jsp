@@ -10,13 +10,17 @@
 <script type="text/javascript">
 	var flag = true;
 	
+	$(function(){
+		changeNum();
+	});
+	
 	function changeNum(){
 		if($("#type").val() == "personal"){
+			$("#realnum").hide();
 			$("#num").val(1);
-			$("#num").attr("disabled",true);
 		}else{
-			$("#num").val(2);
-			$("#num").attr("disabled",false);
+			$("#num").val("");
+			$("#realnum").show();
 		}
 	}
 	
@@ -82,7 +86,7 @@
 					<option value="pog">小组或个人</option>
 				</select>
 			</p>
-			<p>人数：<input type="text" id="num" name="num"></p>
+			<p id="realnum">人数：<input type="text" id="num" name="num"></p>
 			<p>完成时间：<input type="text" id="dead_line" class="tcal" name="dead_line"></p>
 			<input type="button" value="提交" onclick="sub()" />
 			<input type="reset" value="重置" id="rst"/>

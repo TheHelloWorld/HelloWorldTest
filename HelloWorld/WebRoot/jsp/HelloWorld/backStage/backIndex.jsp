@@ -21,6 +21,7 @@
 <body>
 	<div>
 		<p>${account.username}</p>
+		<input type="hidden" id="accountId" value="${account.id}" />
 		<p>等级：<span id="nowlevel">${account.nowlevel}</span>&nbsp;&nbsp;经验：<span id="experience">${account.experience}</span></p>
 	</div>
 	<div>
